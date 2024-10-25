@@ -15,7 +15,8 @@ GOOGLE_MAP = "https://www.google.com.tw/maps"
 
 
 def remove_duplicate(title, data):
-    data[title[0]] = pd.to_datetime(data[title[0]], format='%m/%d/%Y')
+    # data[title[0]] = pd.to_datetime(data[title[0]], format='%m/%d/%y %H:%M')
+    data[title[0]] = pd.to_datetime(data[title[0]], format='%m/%d/%y %H:%M:%S')
     latest_entries = data.loc[data.groupby(title[2])[title[0]].idxmax()]
 
     return latest_entries
@@ -49,6 +50,7 @@ def get_lat_lng(driver, address):
     while driver.current_url == GOOGLE_MAP:
         pass
 
+    sleep(1)
     new_url = driver.current_url
 
     driver.refresh() # 確保大頭針在視窗中央 -> 確保經緯度正確
@@ -61,70 +63,73 @@ def get_lat_lng(driver, address):
 
 if __name__ == "__main__":
     try:
-        df = pd.read_excel(DATA_FILE)
-        title = df.iloc[0, :]
-        data = df.iloc[1:, :]
-        data.columns = title
-
-        latest_entries = remove_duplicate(title, data) 
-        filtered_data = residency_filter(title, latest_entries)
-
-        chrome_option = chromeOptions()
-        chrome_option.add_argument('--log-level=3')
-        chrome_option.add_argument('--start-maximized')
-        chromedriver_autoinstaller.install()
-        driver = webdriver.Chrome(options=chrome_option)
-
-        tku_coord = [25.174542, 121.450259] 
-        map_for_students = folium.Map(location=tku_coord, zoom_start=16, tiles="OpenStreetMap")
-        map_for_teachers = folium.Map(location=tku_coord, zoom_start=16, tiles="OpenStreetMap")
-
-        for index, row in filtered_data.iterrows():
-            address = row[title[4]]
-            property_label = row[title[5]]
-            property_type = row[title[6]]
-            self_safety_check = row[title[7]]
-
-            coord = get_lat_lng(driver, address)
-            sleep(1)
-
-            if coord:
-                icon_color = {
-                    "大樓 building": 'blue',
-                    "公寓 apartment": 'orange',
-                    "平房 bungalow": 'purple',
-                    "我的租屋處是安全的，不需要教官到場訪視 My rental place is safe and there is no need for instructors to visit the place": 'green',
-                    "我的租屋處有些許不安全，但我可以自己處理並主動回報，不需要教官到場訪視 My rental apartment is a little unsafe, but I can handle it myself and report it proactively. I don't need an instructor to visit the place": 'yellow',
-                    "需要教官到我的租屋處再幫忙檢視 I need an instructor to come to my rental office and check it again": 'red'
-                }
-
-                if property_label in ["無", "none", "None"]:
-                    folium.Marker(
-                        location=coord, 
-                        icon=folium.Icon(color=icon_color[property_type])
-                    ).add_to(map_for_students)
-                    folium.Marker(
-                        location=coord, 
-                        icon=folium.Icon(color=icon_color[self_safety_check])
-                    ).add_to(map_for_teachers)
-                else:
-                    folium.Marker(
-                        location=coord, 
-                        popup=property_label,
-                        icon=folium.Icon(color=icon_color[property_type])
-                    ).add_to(map_for_students)
-                    folium.Marker(
-                        location=coord, 
-                        popup=property_label,
-                        icon=folium.Icon(color=icon_color[self_safety_check])
-                    ).add_to(map_for_teachers)
-            else:
-                print(f'{address} coordinates not found!')
-
-        map_for_students.save('map_for_students.html')
-        print("地圖已保存為 'map_for_students.html'")
-
-        map_for_teachers.save('map_for_teachers.html')
-        print("地圖已保存為 'map_for_teachers.html'")
+        df = pd.read_excel(DATA_FILE, header=None)
     except Exception as e:
         print('Excel file not found!')
+        exit(1)
+
+    title = df.iloc[0, :]
+    data = df.iloc[1:, :]
+    data.columns = title
+
+    latest_entries = remove_duplicate(title, data) 
+    filtered_data = residency_filter(title, latest_entries)
+
+    chrome_option = chromeOptions()
+    chrome_option.add_argument('--log-level=3')
+    chrome_option.add_argument('--start-maximized')
+    chromedriver_autoinstaller.install()
+    driver = webdriver.Chrome(options=chrome_option)
+
+    tku_coord = [25.174542, 121.450259] 
+    map_for_students = folium.Map(location=tku_coord, zoom_start=16, tiles="OpenStreetMap")
+    map_for_teachers = folium.Map(location=tku_coord, zoom_start=16, tiles="OpenStreetMap")
+
+    for index, row in filtered_data.iterrows():
+        address = row[title[4]]
+        property_label = row[title[5]]
+        property_type = row[title[6]]
+        self_safety_check = row[title[7]]
+
+        coord = get_lat_lng(driver, address)
+        sleep(1)
+
+        if coord:
+            icon_color = {
+                "大樓 building": 'blue',
+                "公寓 apartment": 'orange',
+                "平房 bungalow": 'purple',
+                "我的租屋處是安全的，不需要教官到場訪視 My rental place is safe and there is no need for instructors to visit the place": 'green',
+                "我的租屋處有些許不安全，但我可以自己處理並主動回報，不需要教官到場訪視 My rental apartment is a little unsafe, but I can handle it myself and report it proactively. I don’t need an instructor to visit the place": 'orange',
+                "需要教官到我的租屋處再幫忙檢視 I need an instructor to come to my rental office and check it again": 'red'
+            }
+
+            if property_label in ["無", "none", "None"]:
+                folium.Marker(
+                    location=coord, 
+                    icon=folium.Icon(color=icon_color[property_type])
+                ).add_to(map_for_students)
+                folium.Marker(
+                    location=coord, 
+                    icon=folium.Icon(color=icon_color[self_safety_check])
+                ).add_to(map_for_teachers)
+            else:
+                folium.Marker(
+                    location=coord, 
+                    popup=property_label,
+                    icon=folium.Icon(color=icon_color[property_type])
+                ).add_to(map_for_students)
+                folium.Marker(
+                    location=coord, 
+                    popup=property_label,
+                    icon=folium.Icon(color=icon_color[self_safety_check])
+                ).add_to(map_for_teachers)
+        else:
+            print(f'{address} coordinates not found!')
+
+    map_for_students.save('map_for_students.html')
+    print("地圖已保存為 'map_for_students.html'")
+
+    map_for_teachers.save('map_for_teachers.html')
+    print("地圖已保存為 'map_for_teachers.html'")
+    
