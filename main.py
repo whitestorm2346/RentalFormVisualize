@@ -89,28 +89,35 @@ if __name__ == "__main__":
             sleep(1)
 
             if coord:
-                if property_label in ["無", "none", "None"]:
-                    property_label = ""
-
                 icon_color = {
                     "大樓 building": 'blue',
-                    "公寓 apartment": 'lightblue',
+                    "公寓 apartment": 'orange',
                     "平房 bungalow": 'purple',
                     "我的租屋處是安全的，不需要教官到場訪視 My rental place is safe and there is no need for instructors to visit the place": 'green',
-                    "我的租屋處有些許不安全，但我可以自己處理並主動回報，不需要教官到場訪視 My rental apartment is a little unsafe, but I can handle it myself and report it proactively. I don't need an instructor to visit the place": 'orange',
+                    "我的租屋處有些許不安全，但我可以自己處理並主動回報，不需要教官到場訪視 My rental apartment is a little unsafe, but I can handle it myself and report it proactively. I don't need an instructor to visit the place": 'yellow',
                     "需要教官到我的租屋處再幫忙檢視 I need an instructor to come to my rental office and check it again": 'red'
                 }
 
-                folium.Marker(
-                    location=coord, 
-                    popup=property_label,
-                    icon=folium.Icon(color=icon_color[property_type])
-                ).add_to(map_for_students)
-                folium.Marker(
-                    location=coord, 
-                    popup=property_label,
-                    icon=folium.Icon(color=icon_color[self_safety_check])
-                ).add_to(map_for_teachers)
+                if property_label in ["無", "none", "None"]:
+                    folium.Marker(
+                        location=coord, 
+                        icon=folium.Icon(color=icon_color[property_type])
+                    ).add_to(map_for_students)
+                    folium.Marker(
+                        location=coord, 
+                        icon=folium.Icon(color=icon_color[self_safety_check])
+                    ).add_to(map_for_teachers)
+                else:
+                    folium.Marker(
+                        location=coord, 
+                        popup=property_label,
+                        icon=folium.Icon(color=icon_color[property_type])
+                    ).add_to(map_for_students)
+                    folium.Marker(
+                        location=coord, 
+                        popup=property_label,
+                        icon=folium.Icon(color=icon_color[self_safety_check])
+                    ).add_to(map_for_teachers)
             else:
                 print(f'{address} coordinates not found!')
 
