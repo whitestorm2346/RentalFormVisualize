@@ -10,19 +10,28 @@ import folium
 import re
 from time import sleep
 
-DATA_FILE = "113學年度學生居住調查暨校外賃居安全自評表_部份資料測試用.xlsx"
+# DATA_FILE = "113學年度學生居住調查暨校外賃居安全自評表_部份資料測試用.xlsx"
+DATA_FILE = "113學年度學生居住調查暨校外賃居安全自評表.xlsx"
 GOOGLE_MAP = "https://www.google.com.tw/maps"
 
 
+ID_COL_IDX = 64
+FINISH_DT_COL_IDX = 2
+CURRENT_RESIDENSY_COL_IDX = 7
+ADDRESS_COL_IDX = 9
+PROPERTY_LABEL_COL_IDX = 10
+PROPERTY_TYPE_COL_IDX = 14
+
+
 def remove_duplicate(title, data):
-    # data[title[0]] = pd.to_datetime(data[title[0]], format='%m/%d/%y %H:%M')
-    data[title[0]] = pd.to_datetime(data[title[0]], format='%m/%d/%y %H:%M:%S')
-    latest_entries = data.loc[data.groupby(title[2])[title[0]].idxmax()]
+    # data[title[FINISH_DT_COL_IDX]] = pd.to_datetime(data[title[FINISH_DT_COL_IDX]], format='%m/%d/%y %H:%M')
+    data[title[FINISH_DT_COL_IDX]] = pd.to_datetime(data[title[FINISH_DT_COL_IDX]], format='%m/%d/%y %H:%M:%S')
+    latest_entries = data.loc[data.groupby(title[ID_COL_IDX])[title[FINISH_DT_COL_IDX]].idxmax()]
 
     return latest_entries
 
 def residency_filter(title, data):
-    filtered_data = data[data[title[3]].str.contains('校外租屋', na=False)]
+    filtered_data = data[data[title[CURRENT_RESIDENSY_COL_IDX]].str.contains('校外租屋', na=False)]
 
     return filtered_data
 
