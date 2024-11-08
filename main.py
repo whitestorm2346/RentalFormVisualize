@@ -104,7 +104,7 @@ if __name__ == "__main__":
                 "需要教官到我的租屋處再幫忙檢視 I need an instructor to come to my rental office and check it again": 'red'
             }
 
-            if property_label in ["無", "none", "None"]:
+            if property_label in ["無", "none", "None", ""]:
                 folium.Marker(
                     location=coord, 
                     icon=folium.Icon(color=icon_color[property_type])
@@ -133,3 +133,4 @@ if __name__ == "__main__":
     map_for_teachers.save('map_for_teachers.html')
     print("地圖已保存為 'map_for_teachers.html'")
     
+
