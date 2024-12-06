@@ -26,17 +26,27 @@ PROPERTY_TYPE_COL = "房屋類型（公寓無電梯；平房只有一樓）Prope
 SELF_SAFETY_CKECK_COL = "經過自我安全檢視後，我覺得... After a self-safety check, I think..."
 
 
-def remove_duplicate(title, data):
-    # data[title[FINISH_DT_COL_IDX]] = pd.to_datetime(data[title[FINISH_DT_COL_IDX]], format='%m/%d/%y %H:%M')
+def remove_duplicate(data):
     data[FINISH_DT_COL] = pd.to_datetime(data[FINISH_DT_COL], format='%m/%d/%y %H:%M:%S')
     latest_entries = data.loc[data.groupby(ID_COL)[FINISH_DT_COL].idxmax()]
 
     return latest_entries
 
-def residency_filter(title, data):
+def residency_filter(data):
     filtered_data = data[data[CURRENT_RESIDENSY_COL].str.contains('校外租屋', na=False)]
 
     return filtered_data
+
+def address_filter(data):
+    regex = r".*(縣|市).*(鄉|鎮|市|區).*(路|街)(?:.*巷)?(?:.*弄)?.*號"
+    filtered_data = data[data[ADDRESS_COL].str.match(regex, na=False)]
+
+    return filtered_data
+
+def address_cleaner(data):
+    cleaned_data = data[data[ADDRESS_COL].str.replace(r"(號).*", r"\1", regex=True)]
+
+    return cleaned_data
 
 def extract_lat_lng(url):
     # print(url)
@@ -78,7 +88,6 @@ def get_lat_lng(driver, address):
 
         sleep(0.1)
         counts += 1
-        
 
     return extract_lat_lng(driver.current_url)
 
@@ -108,8 +117,10 @@ if __name__ == "__main__":
     data = df.iloc[1:, :]
     data.columns = title
 
-    latest_entries = remove_duplicate(title, data) 
-    filtered_data = residency_filter(title, latest_entries)
+    latest_entries = remove_duplicate(data) 
+    filtered_data = residency_filter(latest_entries)
+    filtered_data = address_filter(filtered_data)
+    cleaned_data = address_cleaner(filtered_data)
 
     chrome_option = chromeOptions()
     chrome_option.add_argument('--log-level=3')
@@ -121,7 +132,7 @@ if __name__ == "__main__":
     map_for_students = folium.Map(location=tku_coord, zoom_start=16, tiles="OpenStreetMap")
     map_for_teachers = folium.Map(location=tku_coord, zoom_start=16, tiles="OpenStreetMap")
 
-    for index, row in tqdm(filtered_data.iterrows(), total=len(filtered_data), desc="Processing addresses"):
+    for index, row in tqdm(cleaned_data.iterrows(), total=len(cleaned_data), desc="Processing addresses"):
         address = row[ADDRESS_COL]
         property_label = row[PROPERTY_LABEL_COL]
         property_type = row[PROPERTY_TYPE_COL]
@@ -162,7 +173,8 @@ if __name__ == "__main__":
                     icon=folium.Icon(color=icon_color[self_safety_check])
                 ).add_to(map_for_teachers)
         else:
-            print(f'{address} coordinates not found!')
+            # print(f'{address} coordinates not found!')
+            pass
 
     map_for_students.save('map_for_students.html')
     print("地圖已保存為 'map_for_students.html'")
