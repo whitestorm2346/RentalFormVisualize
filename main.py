@@ -9,12 +9,16 @@ import chromedriver_autoinstaller
 import folium
 import re
 from time import sleep
+from bs4 import BeautifulSoup
+from tqdm import tqdm # process bar
 
 # DATA_FILE = "113學年度學生居住調查暨校外賃居安全自評表_部份資料測試用.xlsx"
 DATA_FILE = "113學年度學生居住調查暨校外賃居安全自評表.xlsx"
+CLEANED_DATA_FILE = "cleaned_data.xlsx"
 GOOGLE_MAP = "https://www.google.com.tw/maps"
 
 
+<<<<<<< HEAD
 ID_COL_IDX = 64
 FINISH_DT_COL_IDX = 2
 CURRENT_RESIDENSY_COL_IDX = 7
@@ -22,22 +26,49 @@ ADDRESS_COL_IDX = 9
 PROPERTY_LABEL_COL_IDX = 10
 PROPERTY_TYPE_COL_IDX = 14
 SAFYTY_CHECK_COL_IDX = 50
+=======
+ID_COL = "學號 Student ID（共9碼不要少了）"
+FINISH_DT_COL = "完成時間"
+CURRENT_RESIDENSY_COL = "目前居住位置 Current Residency"
+ADDRESS_COL = "租屋地址（請詳填住址，所有數字用「半型阿拉伯數字」填入，例如：新北市淡水區水源街2段1號）address"
+PROPERTY_LABEL_COL = "社區大樓名稱（沒有則填「無」）community name (If not fill in none)"
+PROPERTY_TYPE_COL = "房屋類型（公寓無電梯；平房只有一樓）Property Type\n"
+SELF_SAFETY_CKECK_COL = "經過自我安全檢視後，我覺得... After a self-safety check, I think..."
+>>>>>>> c5e9f95127ce7d11439b8be062c32f3e6d04c4eb
 
 
-def remove_duplicate(title, data):
-    # data[title[FINISH_DT_COL_IDX]] = pd.to_datetime(data[title[FINISH_DT_COL_IDX]], format='%m/%d/%y %H:%M')
-    data[title[FINISH_DT_COL_IDX]] = pd.to_datetime(data[title[FINISH_DT_COL_IDX]], format='%m/%d/%y %H:%M:%S')
-    latest_entries = data.loc[data.groupby(title[ID_COL_IDX])[title[FINISH_DT_COL_IDX]].idxmax()]
+def remove_duplicate(data):
+    data.loc[:, FINISH_DT_COL] = pd.to_datetime(data[FINISH_DT_COL], format='%m/%d/%y %H:%M:%S')
+    latest_entries = data.loc[data.groupby(ID_COL)[FINISH_DT_COL].idxmax()]
 
     return latest_entries
 
-def residency_filter(title, data):
-    filtered_data = data[data[title[CURRENT_RESIDENSY_COL_IDX]].str.contains('校外租屋', na=False)]
+def residency_filter(data):
+    filtered_data = data.copy()
+    filtered_data.loc[:, CURRENT_RESIDENSY_COL] = filtered_data[CURRENT_RESIDENSY_COL].str.contains('校外租屋', na=False)
 
     return filtered_data
 
+def address_filter(data):
+    regex = r".*(縣|市).*(鄉|鎮|市|區).*(路|街)(?:.*巷)?(?:.*弄)?.*號"
+    filtered_data = data.copy()
+    filtered_data.loc[:, ADDRESS_COL] = filtered_data[ADDRESS_COL].str.match(regex, na=False)
+
+    return filtered_data
+
+def address_cleaner(data):
+    cleaned_data = data.copy()
+    cleaned_data.loc[:, ADDRESS_COL] = cleaned_data[ADDRESS_COL].str.replace(r"(號).*", r"\1", regex=True)
+
+    return cleaned_data
+
+def address_zh_num_to_en_num(address):
+    # TODO: 
+    # Replace chinese numbers into english numbers
+
+    return new_address
+
 def extract_lat_lng(url):
-    # print(url)
     match = re.search(r'@(-?\d+\.\d+),(-?\d+\.\d+)', url)
 
     if match:
@@ -46,7 +77,7 @@ def extract_lat_lng(url):
     
     return None
 
-def get_lat_lng(driver, address):
+def get_lat_lng(driver, address, error_address_list):
     driver.get(GOOGLE_MAP)
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
     driver.implicitly_wait(3)
@@ -60,30 +91,88 @@ def get_lat_lng(driver, address):
     while driver.current_url == GOOGLE_MAP:
         pass
 
-    sleep(1)
+    sleep(1.5)
+
+    try:
+        not_found_label = driver.find_element(By.XPATH, '//*[@id="QA0Szd"]/div/div/div[1]/div[2]/div/div[1]/div/div/div[1]/div/div[1]')
+
+        if "Google 地圖找不到「" in not_found_label.text:
+            error_address_list.append(address)
+            return False
+    except Exception as e:
+        pass
+
+    try:
+        partially_matched_label = driver.find_element(By.XPATH, '//*[@id="QA0Szd"]/div/div/div[1]/div[2]/div/div[1]/div/div/div[1]/div[1]/div[1]')
+
+        if "部分相符的搜尋結果" in partially_matched_label.text:
+            error_address_list.append(address)
+            return False
+    except Exception as e:
+        pass
+
     new_url = driver.current_url
 
     driver.refresh() # 確保大頭針在視窗中央 -> 確保經緯度正確
 
+    counts = 1
+
     while driver.current_url == new_url:
-        pass
+        if counts >= 30:
+            return False
+
+        sleep(0.1)
+        counts += 1
 
     return extract_lat_lng(driver.current_url)
+
+def make_functional_map(file_name):
+    with open(file_name, 'r', encoding='utf-8') as file:
+        soup = BeautifulSoup(file, 'html.parser')
     
+    button_html = '''
+        <button onclick="alert('Button clicked!')" style="position:absolute; top:10px; left:10px; z-index:9999;">
+            Click Me
+        </button>
+    '''
+    soup.body.insert(0, BeautifulSoup(button_html, 'html.parser'))
+
+    with open(f'new_{file_name}.html', 'w', encoding='utf-8') as file:
+        file.write(str(soup))
 
 if __name__ == "__main__":
     try:
-        df = pd.read_excel(DATA_FILE, header=None)
+        state = False
+        df = pd.read_excel(CLEANED_DATA_FILE, header=None)
     except Exception as e:
-        print('Excel file not found!')
-        exit(1)
+        print(e)
+        state = True
 
-    title = df.iloc[0, :]
-    data = df.iloc[1:, :]
-    data.columns = title
+    if state:
+        try:
+            df = pd.read_excel(DATA_FILE, header=None)
+        except Exception as e:
+            print(e)
+            print('Excel file not found!')
+            exit(1)
 
-    latest_entries = remove_duplicate(title, data) 
-    filtered_data = residency_filter(title, latest_entries)
+        title = df.iloc[0, :]
+        data = df.iloc[1:, :]
+        data.columns = title
+
+        latest_entries = remove_duplicate(data) 
+        filtered_data = residency_filter(latest_entries)
+        filtered_data = address_filter(filtered_data)
+        cleaned_data = address_cleaner(filtered_data)
+
+        cleaned_data
+
+        cleaned_data.to_excel(CLEANED_DATA_FILE, index=False)
+        print(f'Finished creating the {CLEANED_DATA_FILE} file')
+    else:
+        title = df.iloc[0, :]
+        cleaned_data = df.iloc[1:, :]
+        cleaned_data.columns = title
 
     chrome_option = chromeOptions()
     chrome_option.add_argument('--log-level=3')
@@ -95,13 +184,24 @@ if __name__ == "__main__":
     map_for_students = folium.Map(location=tku_coord, zoom_start=16, tiles="OpenStreetMap")
     map_for_teachers = folium.Map(location=tku_coord, zoom_start=16, tiles="OpenStreetMap")
 
+<<<<<<< HEAD
     for index, row in filtered_data.iterrows():
         address = row[title[ADDRESS_COL_IDX]]
         property_label = row[title[PROPERTY_LABEL_COL_IDX]]
         property_type = row[title[PROPERTY_TYPE_COL_IDX]]
         self_safety_check = row[title[SAFYTY_CHECK_COL_IDX]]
+=======
+    error_address_list = []
 
-        coord = get_lat_lng(driver, address)
+    for index, row in tqdm(cleaned_data.iterrows(), total=len(cleaned_data), desc="Processing addresses"):
+        address = row[ADDRESS_COL]
+        property_label = row[PROPERTY_LABEL_COL]
+        property_type = row[PROPERTY_TYPE_COL]
+        self_safety_check = row[SELF_SAFETY_CKECK_COL]
+
+        coord = get_lat_lng(driver, address, error_address_list)
+>>>>>>> c5e9f95127ce7d11439b8be062c32f3e6d04c4eb
+
         sleep(1)
 
         if coord:
@@ -135,7 +235,8 @@ if __name__ == "__main__":
                     icon=folium.Icon(color=icon_color[self_safety_check])
                 ).add_to(map_for_teachers)
         else:
-            print(f'{address} coordinates not found!')
+            # print(f'{address} coordinates not found!')
+            pass
 
     map_for_students.save('map_for_students.html')
     print("地圖已保存為 'map_for_students.html'")
