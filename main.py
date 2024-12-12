@@ -14,6 +14,7 @@ from tqdm import tqdm # process bar
 
 # DATA_FILE = "113學年度學生居住調查暨校外賃居安全自評表_部份資料測試用.xlsx"
 DATA_FILE = "113學年度學生居住調查暨校外賃居安全自評表.xlsx"
+CLEANED_DATA_FILE = "cleaned_data.xlsx"
 GOOGLE_MAP = "https://www.google.com.tw/maps"
 
 
@@ -27,29 +28,37 @@ SELF_SAFETY_CKECK_COL = "經過自我安全檢視後，我覺得... After a sel
 
 
 def remove_duplicate(data):
-    data[FINISH_DT_COL] = pd.to_datetime(data[FINISH_DT_COL], format='%m/%d/%y %H:%M:%S')
+    data.loc[:, FINISH_DT_COL] = pd.to_datetime(data[FINISH_DT_COL], format='%m/%d/%y %H:%M:%S')
     latest_entries = data.loc[data.groupby(ID_COL)[FINISH_DT_COL].idxmax()]
 
     return latest_entries
 
 def residency_filter(data):
-    filtered_data = data[data[CURRENT_RESIDENSY_COL].str.contains('校外租屋', na=False)]
+    filtered_data = data.copy()
+    filtered_data.loc[:, CURRENT_RESIDENSY_COL] = filtered_data[CURRENT_RESIDENSY_COL].str.contains('校外租屋', na=False)
 
     return filtered_data
 
 def address_filter(data):
     regex = r".*(縣|市).*(鄉|鎮|市|區).*(路|街)(?:.*巷)?(?:.*弄)?.*號"
-    filtered_data = data[data[ADDRESS_COL].str.match(regex, na=False)]
+    filtered_data = data.copy()
+    filtered_data.loc[:, ADDRESS_COL] = filtered_data[ADDRESS_COL].str.match(regex, na=False)
 
     return filtered_data
 
 def address_cleaner(data):
-    cleaned_data = data[data[ADDRESS_COL].str.replace(r"(號).*", r"\1", regex=True)]
+    cleaned_data = data.copy()
+    cleaned_data.loc[:, ADDRESS_COL] = cleaned_data[ADDRESS_COL].str.replace(r"(號).*", r"\1", regex=True)
 
     return cleaned_data
 
+def address_zh_num_to_en_num(address):
+    # TODO: 
+    # Replace chinese numbers into english numbers
+
+    return new_address
+
 def extract_lat_lng(url):
-    # print(url)
     match = re.search(r'@(-?\d+\.\d+),(-?\d+\.\d+)', url)
 
     if match:
@@ -58,7 +67,7 @@ def extract_lat_lng(url):
     
     return None
 
-def get_lat_lng(driver, address):
+def get_lat_lng(driver, address, error_address_list):
     driver.get(GOOGLE_MAP)
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
     driver.implicitly_wait(3)
@@ -72,9 +81,25 @@ def get_lat_lng(driver, address):
     while driver.current_url == GOOGLE_MAP:
         pass
 
-    sleep(1)
+    sleep(1.5)
 
-    # 處理沒有找到特定地點
+    try:
+        not_found_label = driver.find_element(By.XPATH, '//*[@id="QA0Szd"]/div/div/div[1]/div[2]/div/div[1]/div/div/div[1]/div/div[1]')
+
+        if "Google 地圖找不到「" in not_found_label.text:
+            error_address_list.append(address)
+            return False
+    except Exception as e:
+        pass
+
+    try:
+        partially_matched_label = driver.find_element(By.XPATH, '//*[@id="QA0Szd"]/div/div/div[1]/div[2]/div/div[1]/div/div/div[1]/div[1]/div[1]')
+
+        if "部分相符的搜尋結果" in partially_matched_label.text:
+            error_address_list.append(address)
+            return False
+    except Exception as e:
+        pass
 
     new_url = driver.current_url
 
@@ -107,20 +132,37 @@ def make_functional_map(file_name):
 
 if __name__ == "__main__":
     try:
-        df = pd.read_excel(DATA_FILE, header=None)
+        state = False
+        df = pd.read_excel(CLEANED_DATA_FILE, header=None)
     except Exception as e:
         print(e)
-        print('Excel file not found!')
-        exit(1)
+        state = True
 
-    title = df.iloc[0, :]
-    data = df.iloc[1:, :]
-    data.columns = title
+    if state:
+        try:
+            df = pd.read_excel(DATA_FILE, header=None)
+        except Exception as e:
+            print(e)
+            print('Excel file not found!')
+            exit(1)
 
-    latest_entries = remove_duplicate(data) 
-    filtered_data = residency_filter(latest_entries)
-    filtered_data = address_filter(filtered_data)
-    cleaned_data = address_cleaner(filtered_data)
+        title = df.iloc[0, :]
+        data = df.iloc[1:, :]
+        data.columns = title
+
+        latest_entries = remove_duplicate(data) 
+        filtered_data = residency_filter(latest_entries)
+        filtered_data = address_filter(filtered_data)
+        cleaned_data = address_cleaner(filtered_data)
+
+        cleaned_data
+
+        cleaned_data.to_excel(CLEANED_DATA_FILE, index=False)
+        print(f'Finished creating the {CLEANED_DATA_FILE} file')
+    else:
+        title = df.iloc[0, :]
+        cleaned_data = df.iloc[1:, :]
+        cleaned_data.columns = title
 
     chrome_option = chromeOptions()
     chrome_option.add_argument('--log-level=3')
@@ -132,13 +174,15 @@ if __name__ == "__main__":
     map_for_students = folium.Map(location=tku_coord, zoom_start=16, tiles="OpenStreetMap")
     map_for_teachers = folium.Map(location=tku_coord, zoom_start=16, tiles="OpenStreetMap")
 
+    error_address_list = []
+
     for index, row in tqdm(cleaned_data.iterrows(), total=len(cleaned_data), desc="Processing addresses"):
         address = row[ADDRESS_COL]
         property_label = row[PROPERTY_LABEL_COL]
         property_type = row[PROPERTY_TYPE_COL]
         self_safety_check = row[SELF_SAFETY_CKECK_COL]
 
-        coord = get_lat_lng(driver, address)
+        coord = get_lat_lng(driver, address, error_address_list)
 
         sleep(1)
 
