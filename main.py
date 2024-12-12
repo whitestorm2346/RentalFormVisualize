@@ -21,6 +21,7 @@ CURRENT_RESIDENSY_COL_IDX = 7
 ADDRESS_COL_IDX = 9
 PROPERTY_LABEL_COL_IDX = 10
 PROPERTY_TYPE_COL_IDX = 14
+SAFYTY_CHECK_COL_IDX = 50
 
 
 def remove_duplicate(title, data):
@@ -95,10 +96,10 @@ if __name__ == "__main__":
     map_for_teachers = folium.Map(location=tku_coord, zoom_start=16, tiles="OpenStreetMap")
 
     for index, row in filtered_data.iterrows():
-        address = row[title[4]]
-        property_label = row[title[5]]
-        property_type = row[title[6]]
-        self_safety_check = row[title[7]]
+        address = row[title[ADDRESS_COL_IDX]]
+        property_label = row[title[PROPERTY_LABEL_COL_IDX]]
+        property_type = row[title[PROPERTY_TYPE_COL_IDX]]
+        self_safety_check = row[title[SAFYTY_CHECK_COL_IDX]]
 
         coord = get_lat_lng(driver, address)
         sleep(1)
