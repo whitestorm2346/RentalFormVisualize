@@ -18,15 +18,6 @@ CLEANED_DATA_FILE = "cleaned_data.xlsx"
 GOOGLE_MAP = "https://www.google.com.tw/maps"
 
 
-<<<<<<< HEAD
-ID_COL_IDX = 64
-FINISH_DT_COL_IDX = 2
-CURRENT_RESIDENSY_COL_IDX = 7
-ADDRESS_COL_IDX = 9
-PROPERTY_LABEL_COL_IDX = 10
-PROPERTY_TYPE_COL_IDX = 14
-SAFYTY_CHECK_COL_IDX = 50
-=======
 ID_COL = "學號 Student ID（共9碼不要少了）"
 FINISH_DT_COL = "完成時間"
 CURRENT_RESIDENSY_COL = "目前居住位置 Current Residency"
@@ -34,7 +25,6 @@ ADDRESS_COL = "租屋地址（請詳填住址，所有數字用「半型阿拉�
 PROPERTY_LABEL_COL = "社區大樓名稱（沒有則填「無」）community name (If not fill in none)"
 PROPERTY_TYPE_COL = "房屋類型（公寓無電梯；平房只有一樓）Property Type\n"
 SELF_SAFETY_CKECK_COL = "經過自我安全檢視後，我覺得... After a self-safety check, I think..."
->>>>>>> c5e9f95127ce7d11439b8be062c32f3e6d04c4eb
 
 
 def remove_duplicate(data):
@@ -44,15 +34,13 @@ def remove_duplicate(data):
     return latest_entries
 
 def residency_filter(data):
-    filtered_data = data.copy()
-    filtered_data.loc[:, CURRENT_RESIDENSY_COL] = filtered_data[CURRENT_RESIDENSY_COL].str.contains('校外租屋', na=False)
+    filtered_data = data[data[CURRENT_RESIDENSY_COL].str.contains('校外租屋', na=False)]
 
     return filtered_data
 
 def address_filter(data):
     regex = r".*(縣|市).*(鄉|鎮|市|區).*(路|街)(?:.*巷)?(?:.*弄)?.*號"
-    filtered_data = data.copy()
-    filtered_data.loc[:, ADDRESS_COL] = filtered_data[ADDRESS_COL].str.match(regex, na=False)
+    filtered_data = data[data[ADDRESS_COL].str.match(regex, na=False)]
 
     return filtered_data
 
@@ -91,7 +79,7 @@ def get_lat_lng(driver, address, error_address_list):
     while driver.current_url == GOOGLE_MAP:
         pass
 
-    sleep(1.5)
+    sleep(1)
 
     try:
         not_found_label = driver.find_element(By.XPATH, '//*[@id="QA0Szd"]/div/div/div[1]/div[2]/div/div[1]/div/div/div[1]/div/div[1]')
@@ -184,13 +172,6 @@ if __name__ == "__main__":
     map_for_students = folium.Map(location=tku_coord, zoom_start=16, tiles="OpenStreetMap")
     map_for_teachers = folium.Map(location=tku_coord, zoom_start=16, tiles="OpenStreetMap")
 
-<<<<<<< HEAD
-    for index, row in filtered_data.iterrows():
-        address = row[title[ADDRESS_COL_IDX]]
-        property_label = row[title[PROPERTY_LABEL_COL_IDX]]
-        property_type = row[title[PROPERTY_TYPE_COL_IDX]]
-        self_safety_check = row[title[SAFYTY_CHECK_COL_IDX]]
-=======
     error_address_list = []
 
     for index, row in tqdm(cleaned_data.iterrows(), total=len(cleaned_data), desc="Processing addresses"):
@@ -200,7 +181,6 @@ if __name__ == "__main__":
         self_safety_check = row[SELF_SAFETY_CKECK_COL]
 
         coord = get_lat_lng(driver, address, error_address_list)
->>>>>>> c5e9f95127ce7d11439b8be062c32f3e6d04c4eb
 
         sleep(1)
 
