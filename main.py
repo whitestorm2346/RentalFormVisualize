@@ -155,8 +155,6 @@ if __name__ == "__main__":
         filtered_data = address_filter(filtered_data)
         cleaned_data = address_cleaner(filtered_data)
 
-        cleaned_data
-
         cleaned_data.to_excel(CLEANED_DATA_FILE, index=False)
         print(f'Finished creating the {CLEANED_DATA_FILE} file')
     else:
