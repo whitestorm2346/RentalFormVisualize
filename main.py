@@ -34,15 +34,13 @@ def remove_duplicate(data):
     return latest_entries
 
 def residency_filter(data):
-    filtered_data = data.copy()
-    filtered_data.loc[:, CURRENT_RESIDENSY_COL] = filtered_data[CURRENT_RESIDENSY_COL].str.contains('校外租屋', na=False)
+    filtered_data = data[data[CURRENT_RESIDENSY_COL].str.contains('校外租屋', na=False)]
 
     return filtered_data
 
 def address_filter(data):
     regex = r".*(縣|市).*(鄉|鎮|市|區).*(路|街)(?:.*巷)?(?:.*弄)?.*號"
-    filtered_data = data.copy()
-    filtered_data.loc[:, ADDRESS_COL] = filtered_data[ADDRESS_COL].str.match(regex, na=False)
+    filtered_data = data[data[ADDRESS_COL].str.match(regex, na=False)]
 
     return filtered_data
 
@@ -81,7 +79,7 @@ def get_lat_lng(driver, address, error_address_list):
     while driver.current_url == GOOGLE_MAP:
         pass
 
-    sleep(1.5)
+    sleep(1)
 
     try:
         not_found_label = driver.find_element(By.XPATH, '//*[@id="QA0Szd"]/div/div/div[1]/div[2]/div/div[1]/div/div/div[1]/div/div[1]')
@@ -194,7 +192,7 @@ if __name__ == "__main__":
                 "需要教官到我的租屋處再幫忙檢視 I need an instructor to come to my rental office and check it again": 'red'
             }
 
-            if property_label in ["無", "none", "None"]:
+            if property_label in ["無", "none", "None", ""]:
                 folium.Marker(
                     location=coord, 
                     icon=folium.Icon(color=icon_color[property_type])
@@ -224,3 +222,4 @@ if __name__ == "__main__":
     map_for_teachers.save('map_for_teachers.html')
     print("地圖已保存為 'map_for_teachers.html'")
     
+
