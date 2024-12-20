@@ -1,0 +1,2274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_04c436150ad1dbb112244ad853cb98bc {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_04c436150ad1dbb112244ad853cb98bc" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_04c436150ad1dbb112244ad853cb98bc = L.map(
+                "map_04c436150ad1dbb112244ad853cb98bc",
+                {
+                    center: [25.174542, 121.450259],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 16,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f9e222896b38f36b46f30e27c4f7dd16 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_f9e222896b38f36b46f30e27c4f7dd16.addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var marker_e30e4982c33806c202ba9409753dd027 = L.marker(
+                [25.1779725, 121.4489211],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_6334560f37088dd6c82580bd5dd71cee = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e30e4982c33806c202ba9409753dd027.setIcon(icon_6334560f37088dd6c82580bd5dd71cee);
+        
+    
+        var popup_9dd54f785b147b9de1fac1e2e035d8f1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cc666e2943e62ec1d7374a797eb7a8da = $(`<div id="html_cc666e2943e62ec1d7374a797eb7a8da" style="width: 100.0%; height: 100.0%;">Hi city</div>`)[0];
+                popup_9dd54f785b147b9de1fac1e2e035d8f1.setContent(html_cc666e2943e62ec1d7374a797eb7a8da);
+            
+        
+
+        marker_e30e4982c33806c202ba9409753dd027.bindPopup(popup_9dd54f785b147b9de1fac1e2e035d8f1)
+        ;
+
+        
+    
+    
+            var marker_b5af58ab11ca9ae7cc06e02db1e27871 = L.marker(
+                [25.1751382, 121.4458966],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_96f13fb45f4d3666bf0c742ebb04467f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_b5af58ab11ca9ae7cc06e02db1e27871.setIcon(icon_96f13fb45f4d3666bf0c742ebb04467f);
+        
+    
+            var marker_a52482fc9d1c9557a667bedac3cadf5e = L.marker(
+                [25.1729804, 121.4529454],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_6a1ad583b6f306aabfd0f999c588461d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_a52482fc9d1c9557a667bedac3cadf5e.setIcon(icon_6a1ad583b6f306aabfd0f999c588461d);
+        
+    
+        var popup_888bece88dc1b1c63a3188a099217a2e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0820541715f0dcbec59f239af85bbefc = $(`<div id="html_0820541715f0dcbec59f239af85bbefc" style="width: 100.0%; height: 100.0%;">淡大財庫</div>`)[0];
+                popup_888bece88dc1b1c63a3188a099217a2e.setContent(html_0820541715f0dcbec59f239af85bbefc);
+            
+        
+
+        marker_a52482fc9d1c9557a667bedac3cadf5e.bindPopup(popup_888bece88dc1b1c63a3188a099217a2e)
+        ;
+
+        
+    
+    
+            var marker_1328377aae502c775fa4d61720e5029e = L.marker(
+                [25.1807777, 121.4444536],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_66e663acef27477ba2e4ce22395412ea = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_1328377aae502c775fa4d61720e5029e.setIcon(icon_66e663acef27477ba2e4ce22395412ea);
+        
+    
+        var popup_f0c6db87449f09c4973d3e5639dc7dbe = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3efbe5c9c7d8d5c61cd0285fc6c5911c = $(`<div id="html_3efbe5c9c7d8d5c61cd0285fc6c5911c" style="width: 100.0%; height: 100.0%;">摩天31</div>`)[0];
+                popup_f0c6db87449f09c4973d3e5639dc7dbe.setContent(html_3efbe5c9c7d8d5c61cd0285fc6c5911c);
+            
+        
+
+        marker_1328377aae502c775fa4d61720e5029e.bindPopup(popup_f0c6db87449f09c4973d3e5639dc7dbe)
+        ;
+
+        
+    
+    
+            var marker_d41f3a781bf011c8fae1e0532a3da52b = L.marker(
+                [25.1729804, 121.4529454],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_87c0a5fc523ddf0421ef22aeefe84430 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_d41f3a781bf011c8fae1e0532a3da52b.setIcon(icon_87c0a5fc523ddf0421ef22aeefe84430);
+        
+    
+        var popup_8bc51b7996f86df87190bb4144e9052e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5b61ca8bb06a5644727484649a0f3021 = $(`<div id="html_5b61ca8bb06a5644727484649a0f3021" style="width: 100.0%; height: 100.0%;">淡大財庫</div>`)[0];
+                popup_8bc51b7996f86df87190bb4144e9052e.setContent(html_5b61ca8bb06a5644727484649a0f3021);
+            
+        
+
+        marker_d41f3a781bf011c8fae1e0532a3da52b.bindPopup(popup_8bc51b7996f86df87190bb4144e9052e)
+        ;
+
+        
+    
+    
+            var marker_cf0264de78415bf1133c472a361d6358 = L.marker(
+                [25.1282914, 121.4522454],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_e3b3df61d25625742e9dc52c9d80ef1a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_cf0264de78415bf1133c472a361d6358.setIcon(icon_e3b3df61d25625742e9dc52c9d80ef1a);
+        
+    
+        var popup_0af0f6582755d7c4ba7ef0924737fd9c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_eabd294436855806e09a60103c3d28b0 = $(`<div id="html_eabd294436855806e09a60103c3d28b0" style="width: 100.0%; height: 100.0%;">天泉大廈</div>`)[0];
+                popup_0af0f6582755d7c4ba7ef0924737fd9c.setContent(html_eabd294436855806e09a60103c3d28b0);
+            
+        
+
+        marker_cf0264de78415bf1133c472a361d6358.bindPopup(popup_0af0f6582755d7c4ba7ef0924737fd9c)
+        ;
+
+        
+    
+    
+            var marker_06a4aca503b8303360d9b22b40297eba = L.marker(
+                [25.1781524, 121.4374105],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_56e0eca5b93ba1fb7ce6c368f673e9d7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_06a4aca503b8303360d9b22b40297eba.setIcon(icon_56e0eca5b93ba1fb7ce6c368f673e9d7);
+        
+    
+            var marker_a2a44f7d3aa7885c97cca7bf9872ad1d = L.marker(
+                [25.1729804, 121.4529454],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_e4c633dd91196ad2f7e2d93480ff14f1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_a2a44f7d3aa7885c97cca7bf9872ad1d.setIcon(icon_e4c633dd91196ad2f7e2d93480ff14f1);
+        
+    
+        var popup_9428f4362a7fbb486adc092298dbfeb9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0ba21fe4f479a4e6ebfb0aff7205056a = $(`<div id="html_0ba21fe4f479a4e6ebfb0aff7205056a" style="width: 100.0%; height: 100.0%;">淡大財庫</div>`)[0];
+                popup_9428f4362a7fbb486adc092298dbfeb9.setContent(html_0ba21fe4f479a4e6ebfb0aff7205056a);
+            
+        
+
+        marker_a2a44f7d3aa7885c97cca7bf9872ad1d.bindPopup(popup_9428f4362a7fbb486adc092298dbfeb9)
+        ;
+
+        
+    
+    
+            var marker_e4bb0dacf8e13a1d974a5c4f7408b8bd = L.marker(
+                [25.174965, 121.446056],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_990983efbc27b150de26b1312daffd82 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_e4bb0dacf8e13a1d974a5c4f7408b8bd.setIcon(icon_990983efbc27b150de26b1312daffd82);
+        
+    
+            var marker_878a5a145fa8911e377bd85411909873 = L.marker(
+                [25.1741046, 121.4521382],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_29ac46751bfdbe4e316c6e73d33cfdc0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_878a5a145fa8911e377bd85411909873.setIcon(icon_29ac46751bfdbe4e316c6e73d33cfdc0);
+        
+    
+        var popup_6d858f37e24aefc64d5f8ce049f25f0a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2105a7120a1486af0523229f68b30160 = $(`<div id="html_2105a7120a1486af0523229f68b30160" style="width: 100.0%; height: 100.0%;">伯仲樓</div>`)[0];
+                popup_6d858f37e24aefc64d5f8ce049f25f0a.setContent(html_2105a7120a1486af0523229f68b30160);
+            
+        
+
+        marker_878a5a145fa8911e377bd85411909873.bindPopup(popup_6d858f37e24aefc64d5f8ce049f25f0a)
+        ;
+
+        
+    
+    
+            var marker_0eaa0ad78d58ba53d9c4ef8d3a9cb012 = L.marker(
+                [25.1775396, 121.4459055],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_d957bac47a440fd81902b9c599e2dc7b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0eaa0ad78d58ba53d9c4ef8d3a9cb012.setIcon(icon_d957bac47a440fd81902b9c599e2dc7b);
+        
+    
+        var popup_471125de0ccc183196d570d1d441e517 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8d76f7f3acbd4b1b3fe8699871db64e7 = $(`<div id="html_8d76f7f3acbd4b1b3fe8699871db64e7" style="width: 100.0%; height: 100.0%;">The one</div>`)[0];
+                popup_471125de0ccc183196d570d1d441e517.setContent(html_8d76f7f3acbd4b1b3fe8699871db64e7);
+            
+        
+
+        marker_0eaa0ad78d58ba53d9c4ef8d3a9cb012.bindPopup(popup_471125de0ccc183196d570d1d441e517)
+        ;
+
+        
+    
+    
+            var marker_aa06dd6b3004494ec3a248122b7a7e6f = L.marker(
+                [25.1772519, 121.4492052],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_ce88b31cdb015b08eda1fd9bceee8915 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_aa06dd6b3004494ec3a248122b7a7e6f.setIcon(icon_ce88b31cdb015b08eda1fd9bceee8915);
+        
+    
+        var popup_892391b66808bc5b83538470009b7595 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_05aafc2881e82f5ec3eddd634197111e = $(`<div id="html_05aafc2881e82f5ec3eddd634197111e" style="width: 100.0%; height: 100.0%;">翰林館</div>`)[0];
+                popup_892391b66808bc5b83538470009b7595.setContent(html_05aafc2881e82f5ec3eddd634197111e);
+            
+        
+
+        marker_aa06dd6b3004494ec3a248122b7a7e6f.bindPopup(popup_892391b66808bc5b83538470009b7595)
+        ;
+
+        
+    
+    
+            var marker_b266d61df6fb9260461cabe71d46c20e = L.marker(
+                [25.1743446, 121.4458411],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_bb8bc1667c3833a1105234bb1402f145 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b266d61df6fb9260461cabe71d46c20e.setIcon(icon_bb8bc1667c3833a1105234bb1402f145);
+        
+    
+            var marker_17e0d02d6c45cdc253e5a5f3508bbd7c = L.marker(
+                [25.1749993, 121.4466424],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_3d09919c4c06ad9746e5f5921c343630 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_17e0d02d6c45cdc253e5a5f3508bbd7c.setIcon(icon_3d09919c4c06ad9746e5f5921c343630);
+        
+    
+            var marker_896912d5d658207111f00e532fac4fd3 = L.marker(
+                [25.1779725, 121.4489211],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_f14de2f79b5aac2ede1f87e34dc3a45f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_896912d5d658207111f00e532fac4fd3.setIcon(icon_f14de2f79b5aac2ede1f87e34dc3a45f);
+        
+    
+        var popup_d2dd2d8c7c336d7bbd5f889387a3b8f2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8bfe579d694e9058b27669762363ec53 = $(`<div id="html_8bfe579d694e9058b27669762363ec53" style="width: 100.0%; height: 100.0%;">Hi city</div>`)[0];
+                popup_d2dd2d8c7c336d7bbd5f889387a3b8f2.setContent(html_8bfe579d694e9058b27669762363ec53);
+            
+        
+
+        marker_896912d5d658207111f00e532fac4fd3.bindPopup(popup_d2dd2d8c7c336d7bbd5f889387a3b8f2)
+        ;
+
+        
+    
+    
+            var marker_754240c540be6d2c9723a39f04eff979 = L.marker(
+                [25.1726032, 121.453034],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_09e26c0158b7f8b46e9cd362483d3093 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_754240c540be6d2c9723a39f04eff979.setIcon(icon_09e26c0158b7f8b46e9cd362483d3093);
+        
+    
+        var popup_4b9df99ff64caf40215fd55fcb18e83e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_eecfa2c942683989dc753cf0b0e4e8a1 = $(`<div id="html_eecfa2c942683989dc753cf0b0e4e8a1" style="width: 100.0%; height: 100.0%;">淡水小城</div>`)[0];
+                popup_4b9df99ff64caf40215fd55fcb18e83e.setContent(html_eecfa2c942683989dc753cf0b0e4e8a1);
+            
+        
+
+        marker_754240c540be6d2c9723a39f04eff979.bindPopup(popup_4b9df99ff64caf40215fd55fcb18e83e)
+        ;
+
+        
+    
+    
+            var marker_e7349da74d7e1d4ac38b63a6aa8da124 = L.marker(
+                [25.1777334, 121.4524403],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_0e513fbfae63925428e639d5cb3123b8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_e7349da74d7e1d4ac38b63a6aa8da124.setIcon(icon_0e513fbfae63925428e639d5cb3123b8);
+        
+    
+        var popup_1ed46ca13b00c3346f8817ed5a847c8b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ca8991c485447cfe5cc82f11c3605b00 = $(`<div id="html_ca8991c485447cfe5cc82f11c3605b00" style="width: 100.0%; height: 100.0%;">巧克力花園</div>`)[0];
+                popup_1ed46ca13b00c3346f8817ed5a847c8b.setContent(html_ca8991c485447cfe5cc82f11c3605b00);
+            
+        
+
+        marker_e7349da74d7e1d4ac38b63a6aa8da124.bindPopup(popup_1ed46ca13b00c3346f8817ed5a847c8b)
+        ;
+
+        
+    
+    
+            var marker_07e4764d6e96f298d1cfe3f97e959083 = L.marker(
+                [25.0881776, 121.4730354],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_7a6636893acfbea4c3dc40b11aa17ce6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_07e4764d6e96f298d1cfe3f97e959083.setIcon(icon_7a6636893acfbea4c3dc40b11aa17ce6);
+        
+    
+            var marker_1e2466ddd838ecbccd34bd55af4b3a26 = L.marker(
+                [25.1805781, 121.4495977],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_8ba1bc1160ba0abab4b6f9c252cd3b1d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_1e2466ddd838ecbccd34bd55af4b3a26.setIcon(icon_8ba1bc1160ba0abab4b6f9c252cd3b1d);
+        
+    
+        var popup_f110622ccffe96d3f292fde6761e3bd5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a5e0a073b82bb0b69139f16d40f6e7ca = $(`<div id="html_a5e0a073b82bb0b69139f16d40f6e7ca" style="width: 100.0%; height: 100.0%;">大旭地</div>`)[0];
+                popup_f110622ccffe96d3f292fde6761e3bd5.setContent(html_a5e0a073b82bb0b69139f16d40f6e7ca);
+            
+        
+
+        marker_1e2466ddd838ecbccd34bd55af4b3a26.bindPopup(popup_f110622ccffe96d3f292fde6761e3bd5)
+        ;
+
+        
+    
+    
+            var marker_321e2eba428e8ab4eade6805d2ee65f3 = L.marker(
+                [25.1779725, 121.4489211],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_8fd0d527dd75810aac2a625572e334d7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_321e2eba428e8ab4eade6805d2ee65f3.setIcon(icon_8fd0d527dd75810aac2a625572e334d7);
+        
+    
+        var popup_47b6d04287b4b1466c727222410e3edd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_940bc67b7293f9a407ffa5c7824825f7 = $(`<div id="html_940bc67b7293f9a407ffa5c7824825f7" style="width: 100.0%; height: 100.0%;">Hi city</div>`)[0];
+                popup_47b6d04287b4b1466c727222410e3edd.setContent(html_940bc67b7293f9a407ffa5c7824825f7);
+            
+        
+
+        marker_321e2eba428e8ab4eade6805d2ee65f3.bindPopup(popup_47b6d04287b4b1466c727222410e3edd)
+        ;
+
+        
+    
+    
+            var marker_6a04d46c35ae36dd178ffd9407614cdd = L.marker(
+                [25.1780871, 121.4497096],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_5b6d3677ce35b0fe41343e2ca5de5877 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_6a04d46c35ae36dd178ffd9407614cdd.setIcon(icon_5b6d3677ce35b0fe41343e2ca5de5877);
+        
+    
+        var popup_49e48b2e9bb09823066b7c1285698615 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b3255d85ee1375d06bf64bcf55227e96 = $(`<div id="html_b3255d85ee1375d06bf64bcf55227e96" style="width: 100.0%; height: 100.0%;">合家精品</div>`)[0];
+                popup_49e48b2e9bb09823066b7c1285698615.setContent(html_b3255d85ee1375d06bf64bcf55227e96);
+            
+        
+
+        marker_6a04d46c35ae36dd178ffd9407614cdd.bindPopup(popup_49e48b2e9bb09823066b7c1285698615)
+        ;
+
+        
+    
+    
+            var marker_dd53c68d1ca23a4554099243a91a8047 = L.marker(
+                [25.1805781, 121.4495977],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_71ad6be69d77fd816eb70c31371c927c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_dd53c68d1ca23a4554099243a91a8047.setIcon(icon_71ad6be69d77fd816eb70c31371c927c);
+        
+    
+        var popup_e95af35edc80639ec6dbfcd4b7cd5b6e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_58786c0bbc70c08e3e169e0c85d9ecaa = $(`<div id="html_58786c0bbc70c08e3e169e0c85d9ecaa" style="width: 100.0%; height: 100.0%;">大旭地</div>`)[0];
+                popup_e95af35edc80639ec6dbfcd4b7cd5b6e.setContent(html_58786c0bbc70c08e3e169e0c85d9ecaa);
+            
+        
+
+        marker_dd53c68d1ca23a4554099243a91a8047.bindPopup(popup_e95af35edc80639ec6dbfcd4b7cd5b6e)
+        ;
+
+        
+    
+    
+            var marker_348906751baff1e23ad7942f10e1fd19 = L.marker(
+                [25.1721767, 121.4439786],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_be44fa0238569af8c93a2e6ff3df0184 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_348906751baff1e23ad7942f10e1fd19.setIcon(icon_be44fa0238569af8c93a2e6ff3df0184);
+        
+    
+            var marker_1a2d131a45894a1eb9c01b87265a7a68 = L.marker(
+                [25.176645, 121.4530782],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_bd32b067178b0acf3976a3a422e8525f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_1a2d131a45894a1eb9c01b87265a7a68.setIcon(icon_bd32b067178b0acf3976a3a422e8525f);
+        
+    
+        var popup_063bcc9f7dda1de5ccfce08251e3ca29 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c674c1a0c602b1e7b2008f928cc7f35e = $(`<div id="html_c674c1a0c602b1e7b2008f928cc7f35e" style="width: 100.0%; height: 100.0%;">山水苑</div>`)[0];
+                popup_063bcc9f7dda1de5ccfce08251e3ca29.setContent(html_c674c1a0c602b1e7b2008f928cc7f35e);
+            
+        
+
+        marker_1a2d131a45894a1eb9c01b87265a7a68.bindPopup(popup_063bcc9f7dda1de5ccfce08251e3ca29)
+        ;
+
+        
+    
+    
+            var marker_2976880e41bc796166061273bafd8a3a = L.marker(
+                [25.1763958, 121.4607343],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_02292e6e9d8cd4c20f6616b5a0c72aa0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_2976880e41bc796166061273bafd8a3a.setIcon(icon_02292e6e9d8cd4c20f6616b5a0c72aa0);
+        
+    
+            var marker_05f83cdd90e787de9ccc54294aa763ee = L.marker(
+                [25.1069777, 121.5275541],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_73dc50a20a8530cc8ce78e20756e57f8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_05f83cdd90e787de9ccc54294aa763ee.setIcon(icon_73dc50a20a8530cc8ce78e20756e57f8);
+        
+    
+            var marker_a9bf7a0002f480dc711b166983e344b1 = L.marker(
+                [25.1768901, 121.4513797],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_ad9b8f3531b2e2e91a4d9285f280a5a7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_a9bf7a0002f480dc711b166983e344b1.setIcon(icon_ad9b8f3531b2e2e91a4d9285f280a5a7);
+        
+    
+        var popup_7ec9ed797fff811e3001c01b38b470a9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5fc66b3f25ac416e5595dee62bf34293 = $(`<div id="html_5fc66b3f25ac416e5595dee62bf34293" style="width: 100.0%; height: 100.0%;">金雞母</div>`)[0];
+                popup_7ec9ed797fff811e3001c01b38b470a9.setContent(html_5fc66b3f25ac416e5595dee62bf34293);
+            
+        
+
+        marker_a9bf7a0002f480dc711b166983e344b1.bindPopup(popup_7ec9ed797fff811e3001c01b38b470a9)
+        ;
+
+        
+    
+    
+            var marker_2a8cbeb7360db7bac421a4bb7b4cce54 = L.marker(
+                [25.1770195, 121.4490036],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_d282077fb0e9c7670b5d7019deb8e914 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_2a8cbeb7360db7bac421a4bb7b4cce54.setIcon(icon_d282077fb0e9c7670b5d7019deb8e914);
+        
+    
+        var popup_35ee30f6cc09003efa2029f1dfb272d6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e3eea7cc435363cdc91038ff7eb8b633 = $(`<div id="html_e3eea7cc435363cdc91038ff7eb8b633" style="width: 100.0%; height: 100.0%;">翰林館</div>`)[0];
+                popup_35ee30f6cc09003efa2029f1dfb272d6.setContent(html_e3eea7cc435363cdc91038ff7eb8b633);
+            
+        
+
+        marker_2a8cbeb7360db7bac421a4bb7b4cce54.bindPopup(popup_35ee30f6cc09003efa2029f1dfb272d6)
+        ;
+
+        
+    
+    
+            var marker_595b8092d31eb58530c3e66e5337e2f5 = L.marker(
+                [25.1744809, 121.4526352],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_e5ff25f0b187072cfd062028cdfe6bd1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_595b8092d31eb58530c3e66e5337e2f5.setIcon(icon_e5ff25f0b187072cfd062028cdfe6bd1);
+        
+    
+            var marker_c46eee2c4ffd8c8c40f3e16ce47fbf3c = L.marker(
+                [25.1780198, 121.4505971],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_3a95bfa1e3e02bdf0954af467c4362d1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_c46eee2c4ffd8c8c40f3e16ce47fbf3c.setIcon(icon_3a95bfa1e3e02bdf0954af467c4362d1);
+        
+    
+        var popup_7b824ef4748a04a16b381b73701c5417 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_44e51c5d990b7b1235c405a7070198a3 = $(`<div id="html_44e51c5d990b7b1235c405a7070198a3" style="width: 100.0%; height: 100.0%;">淡大菁英</div>`)[0];
+                popup_7b824ef4748a04a16b381b73701c5417.setContent(html_44e51c5d990b7b1235c405a7070198a3);
+            
+        
+
+        marker_c46eee2c4ffd8c8c40f3e16ce47fbf3c.bindPopup(popup_7b824ef4748a04a16b381b73701c5417)
+        ;
+
+        
+    
+    
+            var marker_fbc5a4118b7d156dad99eca4922b5cb9 = L.marker(
+                [25.1773791, 121.4531058],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_cec2912026bd2fd366cec0da1e0dfaf0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_fbc5a4118b7d156dad99eca4922b5cb9.setIcon(icon_cec2912026bd2fd366cec0da1e0dfaf0);
+        
+    
+            var marker_b8014ebe20c51eeb8ca754a82f04aaf3 = L.marker(
+                [25.1780198, 121.4505971],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_fe7316c2e8f02a521c11b102dff3286c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_b8014ebe20c51eeb8ca754a82f04aaf3.setIcon(icon_fe7316c2e8f02a521c11b102dff3286c);
+        
+    
+        var popup_58b4b321e80ae2e6907883c56939220b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e63ccef1c0999bdd871c44b494eca367 = $(`<div id="html_e63ccef1c0999bdd871c44b494eca367" style="width: 100.0%; height: 100.0%;">淡大菁英</div>`)[0];
+                popup_58b4b321e80ae2e6907883c56939220b.setContent(html_e63ccef1c0999bdd871c44b494eca367);
+            
+        
+
+        marker_b8014ebe20c51eeb8ca754a82f04aaf3.bindPopup(popup_58b4b321e80ae2e6907883c56939220b)
+        ;
+
+        
+    
+    
+            var marker_845c0421710d2cc08cc2bade92d05ff7 = L.marker(
+                [25.177342, 121.450999],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_0321b5aa860fc8f07ea1ce479e998a86 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_845c0421710d2cc08cc2bade92d05ff7.setIcon(icon_0321b5aa860fc8f07ea1ce479e998a86);
+        
+    
+        var popup_f9367f8adff2781ec07abd3604efdc44 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1ada3ff71af8bf760a5b3dc3d1962798 = $(`<div id="html_1ada3ff71af8bf760a5b3dc3d1962798" style="width: 100.0%; height: 100.0%;">金雞母</div>`)[0];
+                popup_f9367f8adff2781ec07abd3604efdc44.setContent(html_1ada3ff71af8bf760a5b3dc3d1962798);
+            
+        
+
+        marker_845c0421710d2cc08cc2bade92d05ff7.bindPopup(popup_f9367f8adff2781ec07abd3604efdc44)
+        ;
+
+        
+    
+    
+            var marker_55b989c9a4ce5b7fad957f11b68b531e = L.marker(
+                [25.1769002, 121.4525466],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_023702ab9eae4b5ce546e3d7fb37220f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_55b989c9a4ce5b7fad957f11b68b531e.setIcon(icon_023702ab9eae4b5ce546e3d7fb37220f);
+        
+    
+        var popup_e987560f160112984a5801da8fd3cb7e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cc2e7da9d282ee129cc5bc1d2302440e = $(`<div id="html_cc2e7da9d282ee129cc5bc1d2302440e" style="width: 100.0%; height: 100.0%;">山水苑</div>`)[0];
+                popup_e987560f160112984a5801da8fd3cb7e.setContent(html_cc2e7da9d282ee129cc5bc1d2302440e);
+            
+        
+
+        marker_55b989c9a4ce5b7fad957f11b68b531e.bindPopup(popup_e987560f160112984a5801da8fd3cb7e)
+        ;
+
+        
+    
+    
+            var marker_337b97392a9a5b5553f805901aef0582 = L.marker(
+                [25.1748906, 121.4464523],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_d5a664029f04ff89ede2f99cbf8f4d7f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_337b97392a9a5b5553f805901aef0582.setIcon(icon_d5a664029f04ff89ede2f99cbf8f4d7f);
+        
+    
+            var marker_a32d3d5082ffb672db846543873fd150 = L.marker(
+                [25.17985, 121.453375],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_e2f1df9d9d08669f2ebc3279a789fc06 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_a32d3d5082ffb672db846543873fd150.setIcon(icon_e2f1df9d9d08669f2ebc3279a789fc06);
+        
+    
+        var popup_adca8ed4cbc61b574e1080c2848044b0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a316e4b5d59e31a8e43224ade2d9e489 = $(`<div id="html_a316e4b5d59e31a8e43224ade2d9e489" style="width: 100.0%; height: 100.0%;">淡江有約</div>`)[0];
+                popup_adca8ed4cbc61b574e1080c2848044b0.setContent(html_a316e4b5d59e31a8e43224ade2d9e489);
+            
+        
+
+        marker_a32d3d5082ffb672db846543873fd150.bindPopup(popup_adca8ed4cbc61b574e1080c2848044b0)
+        ;
+
+        
+    
+    
+            var marker_d7d7304ad328cda4c3696b6b048e4409 = L.marker(
+                [25.1729804, 121.4529454],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_065202e2e89f9723240171886317df70 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_d7d7304ad328cda4c3696b6b048e4409.setIcon(icon_065202e2e89f9723240171886317df70);
+        
+    
+        var popup_992d749960bb335ffa96db2439997342 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0da95e6df98772476e1f18b43b17c30b = $(`<div id="html_0da95e6df98772476e1f18b43b17c30b" style="width: 100.0%; height: 100.0%;">淡大財庫</div>`)[0];
+                popup_992d749960bb335ffa96db2439997342.setContent(html_0da95e6df98772476e1f18b43b17c30b);
+            
+        
+
+        marker_d7d7304ad328cda4c3696b6b048e4409.bindPopup(popup_992d749960bb335ffa96db2439997342)
+        ;
+
+        
+    
+    
+            var marker_0a6d94767219fdc4c1d0393460e04326 = L.marker(
+                [25.1741155, 121.4531882],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_0d43ebf4268560239af0e7a94c1a9b35 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0a6d94767219fdc4c1d0393460e04326.setIcon(icon_0d43ebf4268560239af0e7a94c1a9b35);
+        
+    
+            var marker_a6592a77986f34a543bab6264c78c6d0 = L.marker(
+                [25.1736273, 121.4501931],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_b27b12c2e2dc4f13b2d61b9326be9de0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_a6592a77986f34a543bab6264c78c6d0.setIcon(icon_b27b12c2e2dc4f13b2d61b9326be9de0);
+        
+    
+            var marker_6c9f49d4ff9119fd7fc242801fb16ef6 = L.marker(
+                [25.177017, 121.4474028],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_123300648a24c92b77c9dec13df7a27d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_6c9f49d4ff9119fd7fc242801fb16ef6.setIcon(icon_123300648a24c92b77c9dec13df7a27d);
+        
+    
+            var marker_e15a25a487656e155f2c7e9ab84a83f1 = L.marker(
+                [25.177017, 121.4474028],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_222ba0158027f650a21922216e3ee277 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_e15a25a487656e155f2c7e9ab84a83f1.setIcon(icon_222ba0158027f650a21922216e3ee277);
+        
+    
+            var marker_fe3d0f00acc66a991e787ddaff26c394 = L.marker(
+                [25.1771021, 121.4522563],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_5c921e56f5e63f265d2d45631628f6ba = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_fe3d0f00acc66a991e787ddaff26c394.setIcon(icon_5c921e56f5e63f265d2d45631628f6ba);
+        
+    
+        var popup_a7a4ce1831ab04399100f927977040a1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e06193f777ab6b326069e2245cf60e34 = $(`<div id="html_e06193f777ab6b326069e2245cf60e34" style="width: 100.0%; height: 100.0%;">巧克力花園</div>`)[0];
+                popup_a7a4ce1831ab04399100f927977040a1.setContent(html_e06193f777ab6b326069e2245cf60e34);
+            
+        
+
+        marker_fe3d0f00acc66a991e787ddaff26c394.bindPopup(popup_a7a4ce1831ab04399100f927977040a1)
+        ;
+
+        
+    
+    
+            var marker_db0197fbbb70b87ed4f062f88e64d315 = L.marker(
+                [25.177017, 121.4474028],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_8ad2ff0385acdc52f3392623f66c1ae0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_db0197fbbb70b87ed4f062f88e64d315.setIcon(icon_8ad2ff0385acdc52f3392623f66c1ae0);
+        
+    
+            var marker_f2214dd7e4d826f3fc5f650736727e00 = L.marker(
+                [25.1778859, 121.4507668],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_c7251932213f0e4a4631009bb09d58cb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f2214dd7e4d826f3fc5f650736727e00.setIcon(icon_c7251932213f0e4a4631009bb09d58cb);
+        
+    
+        var popup_123f7295640183be39d8c99744e3b131 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_43cb2b676320ff15be2da2a968ded347 = $(`<div id="html_43cb2b676320ff15be2da2a968ded347" style="width: 100.0%; height: 100.0%;">淡江風情</div>`)[0];
+                popup_123f7295640183be39d8c99744e3b131.setContent(html_43cb2b676320ff15be2da2a968ded347);
+            
+        
+
+        marker_f2214dd7e4d826f3fc5f650736727e00.bindPopup(popup_123f7295640183be39d8c99744e3b131)
+        ;
+
+        
+    
+    
+            var marker_3e1a868c8009b09d4c61e2638d96f6e0 = L.marker(
+                [25.1771087, 121.4488282],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_0bf79438b9c131582a4c43ed4c038df9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_3e1a868c8009b09d4c61e2638d96f6e0.setIcon(icon_0bf79438b9c131582a4c43ed4c038df9);
+        
+    
+            var marker_a13c475f5b382fa9ab17f3083bd9b0f2 = L.marker(
+                [25.1730866, 121.451209],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_754cb1f28d8ab06000ea78d99f73f069 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_a13c475f5b382fa9ab17f3083bd9b0f2.setIcon(icon_754cb1f28d8ab06000ea78d99f73f069);
+        
+    
+            var marker_1c68ac0c7c84500694e36feaea66dcdd = L.marker(
+                [25.1768287, 121.4512933],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_8944dc5c75ff369950b390edfaf55fca = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_1c68ac0c7c84500694e36feaea66dcdd.setIcon(icon_8944dc5c75ff369950b390edfaf55fca);
+        
+    
+        var popup_3ea38a1a538a940a6118047bd748c625 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9cc9e0f1e65774198c3146e1f4776f3d = $(`<div id="html_9cc9e0f1e65774198c3146e1f4776f3d" style="width: 100.0%; height: 100.0%;">金雞母</div>`)[0];
+                popup_3ea38a1a538a940a6118047bd748c625.setContent(html_9cc9e0f1e65774198c3146e1f4776f3d);
+            
+        
+
+        marker_1c68ac0c7c84500694e36feaea66dcdd.bindPopup(popup_3ea38a1a538a940a6118047bd748c625)
+        ;
+
+        
+    
+    
+            var marker_e8874ae8526c8d671d19dfac32e065cd = L.marker(
+                [25.1771021, 121.4522563],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_db77ce22dd260852d089317ca54f5bbc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e8874ae8526c8d671d19dfac32e065cd.setIcon(icon_db77ce22dd260852d089317ca54f5bbc);
+        
+    
+        var popup_83728e3cd5f7b29fd906b59856a0c47f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0e4da1ac729cef6ff74e1830e5b33b39 = $(`<div id="html_0e4da1ac729cef6ff74e1830e5b33b39" style="width: 100.0%; height: 100.0%;">巧克力花園</div>`)[0];
+                popup_83728e3cd5f7b29fd906b59856a0c47f.setContent(html_0e4da1ac729cef6ff74e1830e5b33b39);
+            
+        
+
+        marker_e8874ae8526c8d671d19dfac32e065cd.bindPopup(popup_83728e3cd5f7b29fd906b59856a0c47f)
+        ;
+
+        
+    
+    
+            var marker_91db47cce7e13daf18406b28880ed50a = L.marker(
+                [25.1771746, 121.4472918],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_977eadd14c89714874f0eca8e023cea9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_91db47cce7e13daf18406b28880ed50a.setIcon(icon_977eadd14c89714874f0eca8e023cea9);
+        
+    
+        var popup_4d0083fa6f095e41fc5c1bcbc17ab2ce = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fca2196a7880fc8ffd89d2e1e33a684d = $(`<div id="html_fca2196a7880fc8ffd89d2e1e33a684d" style="width: 100.0%; height: 100.0%;">海景天下</div>`)[0];
+                popup_4d0083fa6f095e41fc5c1bcbc17ab2ce.setContent(html_fca2196a7880fc8ffd89d2e1e33a684d);
+            
+        
+
+        marker_91db47cce7e13daf18406b28880ed50a.bindPopup(popup_4d0083fa6f095e41fc5c1bcbc17ab2ce)
+        ;
+
+        
+    
+    
+            var marker_61d0a46dc8fe9c9cdda0fc2069278944 = L.marker(
+                [25.1756416, 121.4463417],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_0300f09483ebd94c235492edc73c19d8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_61d0a46dc8fe9c9cdda0fc2069278944.setIcon(icon_0300f09483ebd94c235492edc73c19d8);
+        
+    
+            var marker_1cebc05bfe8815eb09bbb6cf05846116 = L.marker(
+                [25.1739467, 121.4509106],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_77187b8c1549cc08d6f54bc33338ded2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_1cebc05bfe8815eb09bbb6cf05846116.setIcon(icon_77187b8c1549cc08d6f54bc33338ded2);
+        
+    
+            var marker_8949906bfcaf672c665690cf83456670 = L.marker(
+                [25.1741046, 121.4521382],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_4ad89f33b93c521c415b7bff01a8a36b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_8949906bfcaf672c665690cf83456670.setIcon(icon_4ad89f33b93c521c415b7bff01a8a36b);
+        
+    
+        var popup_e11bef6842eb36695b379aae12136b74 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e0ecee6e4a45b0db6d6afc08d2afb344 = $(`<div id="html_e0ecee6e4a45b0db6d6afc08d2afb344" style="width: 100.0%; height: 100.0%;">伯仲樓</div>`)[0];
+                popup_e11bef6842eb36695b379aae12136b74.setContent(html_e0ecee6e4a45b0db6d6afc08d2afb344);
+            
+        
+
+        marker_8949906bfcaf672c665690cf83456670.bindPopup(popup_e11bef6842eb36695b379aae12136b74)
+        ;
+
+        
+    
+    
+            var marker_f252fe0c47810cd58516fa8a2a58b8a8 = L.marker(
+                [25.1747628, 121.4538067],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_ceb48a675992a3a4053cd80c489f0f1d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_f252fe0c47810cd58516fa8a2a58b8a8.setIcon(icon_ceb48a675992a3a4053cd80c489f0f1d);
+        
+    
+            var marker_402e6babd2834e95cb7ec266931bf8b1 = L.marker(
+                [25.1795749, 121.4505182],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_d7a84a05841348f78ee7fc523531bc29 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_402e6babd2834e95cb7ec266931bf8b1.setIcon(icon_d7a84a05841348f78ee7fc523531bc29);
+        
+    
+        var popup_1c126351b4b62aa7b05d46047724857d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_08f5d6b7f8af05a5a97e5456f8b1e376 = $(`<div id="html_08f5d6b7f8af05a5a97e5456f8b1e376" style="width: 100.0%; height: 100.0%;">淡江風情</div>`)[0];
+                popup_1c126351b4b62aa7b05d46047724857d.setContent(html_08f5d6b7f8af05a5a97e5456f8b1e376);
+            
+        
+
+        marker_402e6babd2834e95cb7ec266931bf8b1.bindPopup(popup_1c126351b4b62aa7b05d46047724857d)
+        ;
+
+        
+    
+    
+            var marker_b7a1d132c2c07e997ffdf17014727953 = L.marker(
+                [25.1750409, 121.4464429],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_e60b2e0638244a9462824bb64ee9d8c0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_b7a1d132c2c07e997ffdf17014727953.setIcon(icon_e60b2e0638244a9462824bb64ee9d8c0);
+        
+    
+            var marker_ea27759d5481c7320da5e9f2baec90c0 = L.marker(
+                [25.1795749, 121.4505182],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_febe2ff9629159ddd8769cd45c8c732d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ea27759d5481c7320da5e9f2baec90c0.setIcon(icon_febe2ff9629159ddd8769cd45c8c732d);
+        
+    
+        var popup_71818bf4b8e871294645bc9b1a36f482 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_44a9bb02f33e43a7fc553cf9d98220a3 = $(`<div id="html_44a9bb02f33e43a7fc553cf9d98220a3" style="width: 100.0%; height: 100.0%;">淡江風情</div>`)[0];
+                popup_71818bf4b8e871294645bc9b1a36f482.setContent(html_44a9bb02f33e43a7fc553cf9d98220a3);
+            
+        
+
+        marker_ea27759d5481c7320da5e9f2baec90c0.bindPopup(popup_71818bf4b8e871294645bc9b1a36f482)
+        ;
+
+        
+    
+    
+            var marker_772f8e14ea1019181498c0c28650c122 = L.marker(
+                [25.1776777, 121.4460448],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_40d850551407939bd04f7445c457c407 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_772f8e14ea1019181498c0c28650c122.setIcon(icon_40d850551407939bd04f7445c457c407);
+        
+    
+        var popup_e30581431709c1827ea3bdca5735b608 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5ceb39b01ad726a5c557d5ed2b400280 = $(`<div id="html_5ceb39b01ad726a5c557d5ed2b400280" style="width: 100.0%; height: 100.0%;">海景天下</div>`)[0];
+                popup_e30581431709c1827ea3bdca5735b608.setContent(html_5ceb39b01ad726a5c557d5ed2b400280);
+            
+        
+
+        marker_772f8e14ea1019181498c0c28650c122.bindPopup(popup_e30581431709c1827ea3bdca5735b608)
+        ;
+
+        
+    
+    
+            var marker_2fe00ddd425bd9f72a180212c35c0653 = L.marker(
+                [25.1773791, 121.4531058],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_5a639b6eb4c3af0e5720ed15080ed82b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_2fe00ddd425bd9f72a180212c35c0653.setIcon(icon_5a639b6eb4c3af0e5720ed15080ed82b);
+        
+    
+            var marker_2b995fe5a2a36c4a06446d5085411a8e = L.marker(
+                [25.1772269, 121.4510763],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_85a9b3adbfd2ede8e1863b2eea888b59 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2b995fe5a2a36c4a06446d5085411a8e.setIcon(icon_85a9b3adbfd2ede8e1863b2eea888b59);
+        
+    
+        var popup_0f0469982849af2dc7d955f063689e14 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a79a40305a9734e57c310fe4f6a64820 = $(`<div id="html_a79a40305a9734e57c310fe4f6a64820" style="width: 100.0%; height: 100.0%;">金雞母</div>`)[0];
+                popup_0f0469982849af2dc7d955f063689e14.setContent(html_a79a40305a9734e57c310fe4f6a64820);
+            
+        
+
+        marker_2b995fe5a2a36c4a06446d5085411a8e.bindPopup(popup_0f0469982849af2dc7d955f063689e14)
+        ;
+
+        
+    
+    
+            var marker_c6afacab796662cdaa4890bf418efd65 = L.marker(
+                [25.1743313, 121.4460813],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_185bebdac52031bc32b785c8d76fb86c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_c6afacab796662cdaa4890bf418efd65.setIcon(icon_185bebdac52031bc32b785c8d76fb86c);
+        
+    
+        var popup_4bbfa0533ff9667abb11753919bcc50c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d4c11a03798125a7c57f9b4680bf47e3 = $(`<div id="html_d4c11a03798125a7c57f9b4680bf47e3" style="width: 100.0%; height: 100.0%;">山海觀</div>`)[0];
+                popup_4bbfa0533ff9667abb11753919bcc50c.setContent(html_d4c11a03798125a7c57f9b4680bf47e3);
+            
+        
+
+        marker_c6afacab796662cdaa4890bf418efd65.bindPopup(popup_4bbfa0533ff9667abb11753919bcc50c)
+        ;
+
+        
+    
+    
+            var marker_8f741b5684020208ebbba2521c249f4b = L.marker(
+                [25.1779725, 121.4489211],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_6b95a830520cba2cf7d6fc5fc179edf9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8f741b5684020208ebbba2521c249f4b.setIcon(icon_6b95a830520cba2cf7d6fc5fc179edf9);
+        
+    
+        var popup_8dc0fdf0e1f2e22da3bee6c92b9a32d7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8e962f1d7e4cc39ab31ebdeddb03075a = $(`<div id="html_8e962f1d7e4cc39ab31ebdeddb03075a" style="width: 100.0%; height: 100.0%;">Hi city</div>`)[0];
+                popup_8dc0fdf0e1f2e22da3bee6c92b9a32d7.setContent(html_8e962f1d7e4cc39ab31ebdeddb03075a);
+            
+        
+
+        marker_8f741b5684020208ebbba2521c249f4b.bindPopup(popup_8dc0fdf0e1f2e22da3bee6c92b9a32d7)
+        ;
+
+        
+    
+    
+            var marker_a62acd0610b4f13046531b9cc2f986e5 = L.marker(
+                [25.1775396, 121.4459055],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_d00d9ec3a9a49e12b039b178de5977f7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_a62acd0610b4f13046531b9cc2f986e5.setIcon(icon_d00d9ec3a9a49e12b039b178de5977f7);
+        
+    
+        var popup_093fc8f4a47d2d4299439d64095fa4a1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c238ff47ebf88142f53a884448c8ac65 = $(`<div id="html_c238ff47ebf88142f53a884448c8ac65" style="width: 100.0%; height: 100.0%;">The one</div>`)[0];
+                popup_093fc8f4a47d2d4299439d64095fa4a1.setContent(html_c238ff47ebf88142f53a884448c8ac65);
+            
+        
+
+        marker_a62acd0610b4f13046531b9cc2f986e5.bindPopup(popup_093fc8f4a47d2d4299439d64095fa4a1)
+        ;
+
+        
+    
+    
+            var marker_a2643ef158b5d2ce935d9d3d3cba4b33 = L.marker(
+                [25.1741956, 121.4518447],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_d1fb482b5e76f86ad93dfc0ccfc9fbb0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_a2643ef158b5d2ce935d9d3d3cba4b33.setIcon(icon_d1fb482b5e76f86ad93dfc0ccfc9fbb0);
+        
+    
+        var popup_4079ff82325cddf400f140ea672dbe44 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e32f89f6fb5fa019a29d0179255fead0 = $(`<div id="html_e32f89f6fb5fa019a29d0179255fead0" style="width: 100.0%; height: 100.0%;">伯仲樓</div>`)[0];
+                popup_4079ff82325cddf400f140ea672dbe44.setContent(html_e32f89f6fb5fa019a29d0179255fead0);
+            
+        
+
+        marker_a2643ef158b5d2ce935d9d3d3cba4b33.bindPopup(popup_4079ff82325cddf400f140ea672dbe44)
+        ;
+
+        
+    
+    
+            var marker_c47cfde1610f253e7d66a79b23a7af54 = L.marker(
+                [25.1780198, 121.4505971],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_5988227d137f4693af915d19602e89b5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_c47cfde1610f253e7d66a79b23a7af54.setIcon(icon_5988227d137f4693af915d19602e89b5);
+        
+    
+        var popup_79b3ce77307f89aa41f9b8557199438e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9a0e9c24b02cb9401e373a512acccc85 = $(`<div id="html_9a0e9c24b02cb9401e373a512acccc85" style="width: 100.0%; height: 100.0%;">淡大菁英</div>`)[0];
+                popup_79b3ce77307f89aa41f9b8557199438e.setContent(html_9a0e9c24b02cb9401e373a512acccc85);
+            
+        
+
+        marker_c47cfde1610f253e7d66a79b23a7af54.bindPopup(popup_79b3ce77307f89aa41f9b8557199438e)
+        ;
+
+        
+    
+    
+            var marker_7bff218ac6089a9ff10e4870fe49800c = L.marker(
+                [25.1771635, 121.447515],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_c3286c19de2a0a31ea3ed98ccb92ee8b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_7bff218ac6089a9ff10e4870fe49800c.setIcon(icon_c3286c19de2a0a31ea3ed98ccb92ee8b);
+        
+    
+            var marker_9d0de9828d56f4da0c6ee3e32368053f = L.marker(
+                [25.1771588, 121.4489434],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_64adf4d17a316831f236149d6b47a929 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_9d0de9828d56f4da0c6ee3e32368053f.setIcon(icon_64adf4d17a316831f236149d6b47a929);
+        
+    
+            var marker_3374e26a70d1638a026c14a795eace2f = L.marker(
+                [25.1743708, 121.4464873],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_f0102b875e70d02b543d552453d0a467 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_3374e26a70d1638a026c14a795eace2f.setIcon(icon_f0102b875e70d02b543d552453d0a467);
+        
+    
+            var marker_d8940e082619d316a143da991407fbda = L.marker(
+                [25.1770051, 121.4487535],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_1f67e1231ab5d5d253045446369b4d69 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_d8940e082619d316a143da991407fbda.setIcon(icon_1f67e1231ab5d5d253045446369b4d69);
+        
+    
+            var marker_1e2cfaa4d9e0f0e79d86fd3848260ae4 = L.marker(
+                [25.1768992, 121.4511802],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_0f50795b6059f02da713917b319e9c40 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_1e2cfaa4d9e0f0e79d86fd3848260ae4.setIcon(icon_0f50795b6059f02da713917b319e9c40);
+        
+    
+        var popup_17dd93b81d43d9c54c668e7b46aa3923 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_26087011cf372d1c224ee5b0237f8a75 = $(`<div id="html_26087011cf372d1c224ee5b0237f8a75" style="width: 100.0%; height: 100.0%;">金雞母</div>`)[0];
+                popup_17dd93b81d43d9c54c668e7b46aa3923.setContent(html_26087011cf372d1c224ee5b0237f8a75);
+            
+        
+
+        marker_1e2cfaa4d9e0f0e79d86fd3848260ae4.bindPopup(popup_17dd93b81d43d9c54c668e7b46aa3923)
+        ;
+
+        
+    
+    
+            var marker_8dfcdb8f732192ecdf46f9da8252646c = L.marker(
+                [25.1769002, 121.4525466],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_2ee0e4cfa8618d53719a7606cfd3dbe6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8dfcdb8f732192ecdf46f9da8252646c.setIcon(icon_2ee0e4cfa8618d53719a7606cfd3dbe6);
+        
+    
+        var popup_1795f20d31b1af6fc50234627588cca6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6da369424d572ac9c9130cd130fe727c = $(`<div id="html_6da369424d572ac9c9130cd130fe727c" style="width: 100.0%; height: 100.0%;">山水苑</div>`)[0];
+                popup_1795f20d31b1af6fc50234627588cca6.setContent(html_6da369424d572ac9c9130cd130fe727c);
+            
+        
+
+        marker_8dfcdb8f732192ecdf46f9da8252646c.bindPopup(popup_1795f20d31b1af6fc50234627588cca6)
+        ;
+
+        
+    
+    
+            var marker_6b41e404d2be0229184abeb37cc1b877 = L.marker(
+                [25.177428, 121.450791],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_73cda1bf4d2bf2109db4f8aff9592078 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_6b41e404d2be0229184abeb37cc1b877.setIcon(icon_73cda1bf4d2bf2109db4f8aff9592078);
+        
+    
+        var popup_092537082751e0c20f4373f4a73c8d3f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6648c5bf1107ecf1295272fb1c15c2fe = $(`<div id="html_6648c5bf1107ecf1295272fb1c15c2fe" style="width: 100.0%; height: 100.0%;">金雞母</div>`)[0];
+                popup_092537082751e0c20f4373f4a73c8d3f.setContent(html_6648c5bf1107ecf1295272fb1c15c2fe);
+            
+        
+
+        marker_6b41e404d2be0229184abeb37cc1b877.bindPopup(popup_092537082751e0c20f4373f4a73c8d3f)
+        ;
+
+        
+    
+    
+            var marker_5d13195bc9451b07a343deebd912ced0 = L.marker(
+                [25.1783299, 121.4503785],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_cda26d2a91a26c91b3b467cfce32d896 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_5d13195bc9451b07a343deebd912ced0.setIcon(icon_cda26d2a91a26c91b3b467cfce32d896);
+        
+    
+        var popup_641e58dd0f8d59f92979776dd0fbd51b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_acc5005519588ba7c0faa87d641c5e8b = $(`<div id="html_acc5005519588ba7c0faa87d641c5e8b" style="width: 100.0%; height: 100.0%;">淡大菁英</div>`)[0];
+                popup_641e58dd0f8d59f92979776dd0fbd51b.setContent(html_acc5005519588ba7c0faa87d641c5e8b);
+            
+        
+
+        marker_5d13195bc9451b07a343deebd912ced0.bindPopup(popup_641e58dd0f8d59f92979776dd0fbd51b)
+        ;
+
+        
+    
+    
+            var marker_ef0d5661a96f84ad0a235d47e81a2d47 = L.marker(
+                [25.1970045, 121.4386188],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_232d901005e446c058f4ae6fd6329ff3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ef0d5661a96f84ad0a235d47e81a2d47.setIcon(icon_232d901005e446c058f4ae6fd6329ff3);
+        
+    
+        var popup_92b49b34c100fc6210bc0f3b78b221b1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e665cd416e77a78f7a83bccb3fb46618 = $(`<div id="html_e665cd416e77a78f7a83bccb3fb46618" style="width: 100.0%; height: 100.0%;">海洋都心</div>`)[0];
+                popup_92b49b34c100fc6210bc0f3b78b221b1.setContent(html_e665cd416e77a78f7a83bccb3fb46618);
+            
+        
+
+        marker_ef0d5661a96f84ad0a235d47e81a2d47.bindPopup(popup_92b49b34c100fc6210bc0f3b78b221b1)
+        ;
+
+        
+    
+    
+            var marker_c0d55bc93f272477514eb9b19c800e51 = L.marker(
+                [25.1771746, 121.4472918],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_3efb19f3eb1ec4d1e9d7ae38633dc847 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_c0d55bc93f272477514eb9b19c800e51.setIcon(icon_3efb19f3eb1ec4d1e9d7ae38633dc847);
+        
+    
+        var popup_afbcea46e275db2c233ab359bcedd1a3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_17cc0cbd00bb6dd369e6eb2821944239 = $(`<div id="html_17cc0cbd00bb6dd369e6eb2821944239" style="width: 100.0%; height: 100.0%;">海景天下</div>`)[0];
+                popup_afbcea46e275db2c233ab359bcedd1a3.setContent(html_17cc0cbd00bb6dd369e6eb2821944239);
+            
+        
+
+        marker_c0d55bc93f272477514eb9b19c800e51.bindPopup(popup_afbcea46e275db2c233ab359bcedd1a3)
+        ;
+
+        
+    
+    
+            var marker_5e70ba1ff082e05e521eed1e8a2fd028 = L.marker(
+                [25.1738439, 121.4524302],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_a477ffe966356761a0b35140722b6db7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_5e70ba1ff082e05e521eed1e8a2fd028.setIcon(icon_a477ffe966356761a0b35140722b6db7);
+        
+    
+        var popup_95bac55157214b0a215e98c3c967eda3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_55ec4b0a17b667c524fa568e6faeeb46 = $(`<div id="html_55ec4b0a17b667c524fa568e6faeeb46" style="width: 100.0%; height: 100.0%;">淡大101</div>`)[0];
+                popup_95bac55157214b0a215e98c3c967eda3.setContent(html_55ec4b0a17b667c524fa568e6faeeb46);
+            
+        
+
+        marker_5e70ba1ff082e05e521eed1e8a2fd028.bindPopup(popup_95bac55157214b0a215e98c3c967eda3)
+        ;
+
+        
+    
+    
+            var marker_597f597732a7300adb463301afa575a5 = L.marker(
+                [25.1779725, 121.4489211],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_62570baef8d7ba44f61604bdd89d5fa4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_597f597732a7300adb463301afa575a5.setIcon(icon_62570baef8d7ba44f61604bdd89d5fa4);
+        
+    
+        var popup_cb3d7384cf05803abc7d1f13094863e8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d8c22e4d5015df5817ef14fb7a41e0e8 = $(`<div id="html_d8c22e4d5015df5817ef14fb7a41e0e8" style="width: 100.0%; height: 100.0%;">Hi city</div>`)[0];
+                popup_cb3d7384cf05803abc7d1f13094863e8.setContent(html_d8c22e4d5015df5817ef14fb7a41e0e8);
+            
+        
+
+        marker_597f597732a7300adb463301afa575a5.bindPopup(popup_cb3d7384cf05803abc7d1f13094863e8)
+        ;
+
+        
+    
+    
+            var marker_f79a0629f28fc275a422f4050df4b4ca = L.marker(
+                [25.1778992, 121.4502682],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_746bb63b56a693250c015a610d23b018 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f79a0629f28fc275a422f4050df4b4ca.setIcon(icon_746bb63b56a693250c015a610d23b018);
+        
+    
+        var popup_8672f200e7f1341c7c55cd049b89a9f0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fd9a3ef1ef601246b7a5a9ae5149e98e = $(`<div id="html_fd9a3ef1ef601246b7a5a9ae5149e98e" style="width: 100.0%; height: 100.0%;">合家精品</div>`)[0];
+                popup_8672f200e7f1341c7c55cd049b89a9f0.setContent(html_fd9a3ef1ef601246b7a5a9ae5149e98e);
+            
+        
+
+        marker_f79a0629f28fc275a422f4050df4b4ca.bindPopup(popup_8672f200e7f1341c7c55cd049b89a9f0)
+        ;
+
+        
+    
+    
+            var marker_0f6567e6939840b612ae6040804a9872 = L.marker(
+                [25.1778435, 121.4494978],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_8c909985a0782c620169bcd3369fe48b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_0f6567e6939840b612ae6040804a9872.setIcon(icon_8c909985a0782c620169bcd3369fe48b);
+        
+    
+            var marker_62366db51bc89a04a5d1919947166054 = L.marker(
+                [25.1780871, 121.4497096],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_5d9f1c5fef114b5f041c9a90935a5322 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_62366db51bc89a04a5d1919947166054.setIcon(icon_5d9f1c5fef114b5f041c9a90935a5322);
+        
+    
+        var popup_d6404d5dabc6da03e3a4bb7863c1c9ea = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3afd4c5502c355d993eeb34176495547 = $(`<div id="html_3afd4c5502c355d993eeb34176495547" style="width: 100.0%; height: 100.0%;">合家精品</div>`)[0];
+                popup_d6404d5dabc6da03e3a4bb7863c1c9ea.setContent(html_3afd4c5502c355d993eeb34176495547);
+            
+        
+
+        marker_62366db51bc89a04a5d1919947166054.bindPopup(popup_d6404d5dabc6da03e3a4bb7863c1c9ea)
+        ;
+
+        
+    
+    
+            var marker_3ec897e3ea06abd6d7f8d4c833b12c1f = L.marker(
+                [25.1777347, 121.4511194],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_848121fde7283dd39be7d632f7cf3e84 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_3ec897e3ea06abd6d7f8d4c833b12c1f.setIcon(icon_848121fde7283dd39be7d632f7cf3e84);
+        
+    
+        var popup_a505c1205834b4d8020717eb56c39c90 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_086891b3b2384524fe92e65b3888c702 = $(`<div id="html_086891b3b2384524fe92e65b3888c702" style="width: 100.0%; height: 100.0%;">淡江風情</div>`)[0];
+                popup_a505c1205834b4d8020717eb56c39c90.setContent(html_086891b3b2384524fe92e65b3888c702);
+            
+        
+
+        marker_3ec897e3ea06abd6d7f8d4c833b12c1f.bindPopup(popup_a505c1205834b4d8020717eb56c39c90)
+        ;
+
+        
+    
+    
+            var marker_8af2058c42e11b2b563b74bc3c3740e7 = L.marker(
+                [25.1781067, 121.4498919],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_4ab03c6677ba5e02642ed19d17012234 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8af2058c42e11b2b563b74bc3c3740e7.setIcon(icon_4ab03c6677ba5e02642ed19d17012234);
+        
+    
+        var popup_c841c89b407a6824dfc44d146d2a313e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c83c2004d59bddfeb2c70014c99768ed = $(`<div id="html_c83c2004d59bddfeb2c70014c99768ed" style="width: 100.0%; height: 100.0%;">合家精品</div>`)[0];
+                popup_c841c89b407a6824dfc44d146d2a313e.setContent(html_c83c2004d59bddfeb2c70014c99768ed);
+            
+        
+
+        marker_8af2058c42e11b2b563b74bc3c3740e7.bindPopup(popup_c841c89b407a6824dfc44d146d2a313e)
+        ;
+
+        
+    
+    
+            var marker_56d76e8e7a8babecd6d0f47d57fe7dfd = L.marker(
+                [25.1773121, 121.4504343],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_bab05f01c23a2875fcb3ce3dc6b9c30b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_56d76e8e7a8babecd6d0f47d57fe7dfd.setIcon(icon_bab05f01c23a2875fcb3ce3dc6b9c30b);
+        
+    
+        var popup_83aa234a3f4ec49449f4aba690f84e80 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6897082cd46dad32cfd6aabeba781cdd = $(`<div id="html_6897082cd46dad32cfd6aabeba781cdd" style="width: 100.0%; height: 100.0%;">金雞母</div>`)[0];
+                popup_83aa234a3f4ec49449f4aba690f84e80.setContent(html_6897082cd46dad32cfd6aabeba781cdd);
+            
+        
+
+        marker_56d76e8e7a8babecd6d0f47d57fe7dfd.bindPopup(popup_83aa234a3f4ec49449f4aba690f84e80)
+        ;
+
+        
+    
+    
+            var marker_08485f4986cfa7ea877f1949c3f82f6f = L.marker(
+                [25.1768997, 121.4525481],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_fce3441bba00636c6b7dbadc030d250b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_08485f4986cfa7ea877f1949c3f82f6f.setIcon(icon_fce3441bba00636c6b7dbadc030d250b);
+        
+    
+        var popup_d2abc6d792d2efbe8d0d46e2283680b0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2e267ae094d55fe6f682b534376b384e = $(`<div id="html_2e267ae094d55fe6f682b534376b384e" style="width: 100.0%; height: 100.0%;">山水苑</div>`)[0];
+                popup_d2abc6d792d2efbe8d0d46e2283680b0.setContent(html_2e267ae094d55fe6f682b534376b384e);
+            
+        
+
+        marker_08485f4986cfa7ea877f1949c3f82f6f.bindPopup(popup_d2abc6d792d2efbe8d0d46e2283680b0)
+        ;
+
+        
+    
+    
+            var marker_01f0804d075ab04ded8c4047a464cdb5 = L.marker(
+                [25.1767488, 121.4515393],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_746be8d64e0b712b9ff88cda5591f358 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_01f0804d075ab04ded8c4047a464cdb5.setIcon(icon_746be8d64e0b712b9ff88cda5591f358);
+        
+    
+        var popup_0099b92d4686d84aad51e1a2bd48c097 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cf8cad36ea2189f995b55f3cc5e2231f = $(`<div id="html_cf8cad36ea2189f995b55f3cc5e2231f" style="width: 100.0%; height: 100.0%;">金雞母</div>`)[0];
+                popup_0099b92d4686d84aad51e1a2bd48c097.setContent(html_cf8cad36ea2189f995b55f3cc5e2231f);
+            
+        
+
+        marker_01f0804d075ab04ded8c4047a464cdb5.bindPopup(popup_0099b92d4686d84aad51e1a2bd48c097)
+        ;
+
+        
+    
+    
+            var marker_0b8cab984c50b02926a23c18da73dddf = L.marker(
+                [25.1781067, 121.4498919],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_139f9ede10d7465b74de26fc07a448f4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0b8cab984c50b02926a23c18da73dddf.setIcon(icon_139f9ede10d7465b74de26fc07a448f4);
+        
+    
+        var popup_e0f582d7ada3ac25a6a819043f416bfc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_59453f225b2dd0df62b7ea8d3105eebf = $(`<div id="html_59453f225b2dd0df62b7ea8d3105eebf" style="width: 100.0%; height: 100.0%;">合家精品</div>`)[0];
+                popup_e0f582d7ada3ac25a6a819043f416bfc.setContent(html_59453f225b2dd0df62b7ea8d3105eebf);
+            
+        
+
+        marker_0b8cab984c50b02926a23c18da73dddf.bindPopup(popup_e0f582d7ada3ac25a6a819043f416bfc)
+        ;
+
+        
+    
+    
+            var marker_be6b6d036bd0a2b2ed1c17d40bd33b49 = L.marker(
+                [25.1777146, 121.4514885],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_e49ff88c16951b5bd76128243c0b0411 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_be6b6d036bd0a2b2ed1c17d40bd33b49.setIcon(icon_e49ff88c16951b5bd76128243c0b0411);
+        
+    
+        var popup_99c442637029c9db2167291d5af6a503 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d1a0c7b735934ed35d68c4cc51ffa738 = $(`<div id="html_d1a0c7b735934ed35d68c4cc51ffa738" style="width: 100.0%; height: 100.0%;">金雞母</div>`)[0];
+                popup_99c442637029c9db2167291d5af6a503.setContent(html_d1a0c7b735934ed35d68c4cc51ffa738);
+            
+        
+
+        marker_be6b6d036bd0a2b2ed1c17d40bd33b49.bindPopup(popup_99c442637029c9db2167291d5af6a503)
+        ;
+
+        
+    
+    
+            var marker_89d4f71f6a12608a4d894b4e286c6bfc = L.marker(
+                [25.173819, 121.4522505],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_fb0871bb70fd4ddcf8daa167a24d6520 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_89d4f71f6a12608a4d894b4e286c6bfc.setIcon(icon_fb0871bb70fd4ddcf8daa167a24d6520);
+        
+    
+        var popup_c46ed7f47755b1d8837846a2b8fd408b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_23ab0a5f13f8ed315fe81d02aa4e32d0 = $(`<div id="html_23ab0a5f13f8ed315fe81d02aa4e32d0" style="width: 100.0%; height: 100.0%;">淡大101</div>`)[0];
+                popup_c46ed7f47755b1d8837846a2b8fd408b.setContent(html_23ab0a5f13f8ed315fe81d02aa4e32d0);
+            
+        
+
+        marker_89d4f71f6a12608a4d894b4e286c6bfc.bindPopup(popup_c46ed7f47755b1d8837846a2b8fd408b)
+        ;
+
+        
+    
+    
+            var marker_78de550bb50064e68686fb447c7c3745 = L.marker(
+                [25.176645, 121.4530782],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_dcbde7ec293701287ce4489e265970bf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_78de550bb50064e68686fb447c7c3745.setIcon(icon_dcbde7ec293701287ce4489e265970bf);
+        
+    
+        var popup_22414f55540e184698202cef4890c152 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_56fface75fd27b9fd6351e17fbdc8503 = $(`<div id="html_56fface75fd27b9fd6351e17fbdc8503" style="width: 100.0%; height: 100.0%;">山水苑</div>`)[0];
+                popup_22414f55540e184698202cef4890c152.setContent(html_56fface75fd27b9fd6351e17fbdc8503);
+            
+        
+
+        marker_78de550bb50064e68686fb447c7c3745.bindPopup(popup_22414f55540e184698202cef4890c152)
+        ;
+
+        
+    
+    
+            var marker_bb56ad840ea9dc6e672c32588bd41c4b = L.marker(
+                [25.1779725, 121.4489211],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_c6b3b8a124ad1a52fed19535e08dae47 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_bb56ad840ea9dc6e672c32588bd41c4b.setIcon(icon_c6b3b8a124ad1a52fed19535e08dae47);
+        
+    
+        var popup_8cc6c07ad3b2e415722e8a724fc3e904 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3d86bcde2c7474e5a567096680e40222 = $(`<div id="html_3d86bcde2c7474e5a567096680e40222" style="width: 100.0%; height: 100.0%;">Hi city</div>`)[0];
+                popup_8cc6c07ad3b2e415722e8a724fc3e904.setContent(html_3d86bcde2c7474e5a567096680e40222);
+            
+        
+
+        marker_bb56ad840ea9dc6e672c32588bd41c4b.bindPopup(popup_8cc6c07ad3b2e415722e8a724fc3e904)
+        ;
+
+        
+    
+    
+            var marker_901bfccd9b7c2841df2d1cb448a54399 = L.marker(
+                [25.173819, 121.4522505],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_cd88ead77f756264a3a93a5be5cce8a0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_901bfccd9b7c2841df2d1cb448a54399.setIcon(icon_cd88ead77f756264a3a93a5be5cce8a0);
+        
+    
+        var popup_aed0aa6160c6abdb33a877e0a30c9bbf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ca497988990bfaebb9b61760dd55df66 = $(`<div id="html_ca497988990bfaebb9b61760dd55df66" style="width: 100.0%; height: 100.0%;">淡大101</div>`)[0];
+                popup_aed0aa6160c6abdb33a877e0a30c9bbf.setContent(html_ca497988990bfaebb9b61760dd55df66);
+            
+        
+
+        marker_901bfccd9b7c2841df2d1cb448a54399.bindPopup(popup_aed0aa6160c6abdb33a877e0a30c9bbf)
+        ;
+
+        
+    
+    
+            var marker_f125ce3413bf9ec9275bd4b6ec3705b4 = L.marker(
+                [25.175555, 121.4461215],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_8f1fe761955535a8e7fa51ed9b2efa27 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_f125ce3413bf9ec9275bd4b6ec3705b4.setIcon(icon_8f1fe761955535a8e7fa51ed9b2efa27);
+        
+    
+            var marker_3e6a9e94c96fab82a64628d66a1d4f8c = L.marker(
+                [25.1780977, 121.4501751],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_59193349724b272d607b17d801e8d95a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_3e6a9e94c96fab82a64628d66a1d4f8c.setIcon(icon_59193349724b272d607b17d801e8d95a);
+        
+    
+        var popup_fca986d6071bd605c80ada1f9da0a93d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f406f17f3994b9c75b126c433ff05b17 = $(`<div id="html_f406f17f3994b9c75b126c433ff05b17" style="width: 100.0%; height: 100.0%;">淡大菁英</div>`)[0];
+                popup_fca986d6071bd605c80ada1f9da0a93d.setContent(html_f406f17f3994b9c75b126c433ff05b17);
+            
+        
+
+        marker_3e6a9e94c96fab82a64628d66a1d4f8c.bindPopup(popup_fca986d6071bd605c80ada1f9da0a93d)
+        ;
+
+        
+    
+    
+            var marker_d76273c2363b100c10435130f88a5b46 = L.marker(
+                [25.1770575, 121.4517844],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_dff8f52823602f8a97c462c084c6eff0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_d76273c2363b100c10435130f88a5b46.setIcon(icon_dff8f52823602f8a97c462c084c6eff0);
+        
+    
+        var popup_53c8a27c81278da729a0ccc3bd569aaf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_134cb036e49846f875f5e8ac73330a0a = $(`<div id="html_134cb036e49846f875f5e8ac73330a0a" style="width: 100.0%; height: 100.0%;">金雞母</div>`)[0];
+                popup_53c8a27c81278da729a0ccc3bd569aaf.setContent(html_134cb036e49846f875f5e8ac73330a0a);
+            
+        
+
+        marker_d76273c2363b100c10435130f88a5b46.bindPopup(popup_53c8a27c81278da729a0ccc3bd569aaf)
+        ;
+
+        
+    
+    
+            var marker_ccf0e15ed1b6aec932ccde782b27e283 = L.marker(
+                [25.1783432, 121.4495169],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_d96f1b76c3b6bffe06fba481726bf804 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ccf0e15ed1b6aec932ccde782b27e283.setIcon(icon_d96f1b76c3b6bffe06fba481726bf804);
+        
+    
+        var popup_9a3576a0663e208910d86e86860e64ef = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9e882ac7179842a861142e172b0826b9 = $(`<div id="html_9e882ac7179842a861142e172b0826b9" style="width: 100.0%; height: 100.0%;">淡大菁英</div>`)[0];
+                popup_9a3576a0663e208910d86e86860e64ef.setContent(html_9e882ac7179842a861142e172b0826b9);
+            
+        
+
+        marker_ccf0e15ed1b6aec932ccde782b27e283.bindPopup(popup_9a3576a0663e208910d86e86860e64ef)
+        ;
+
+        
+    
+    
+            var marker_11a3111c76675e50e1cbe92c3cffa314 = L.marker(
+                [25.1768848, 121.4534751],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_9ccbccec15e42d553ef94ee7c0fa1f39 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_11a3111c76675e50e1cbe92c3cffa314.setIcon(icon_9ccbccec15e42d553ef94ee7c0fa1f39);
+        
+    
+            var marker_eb3721d8d057fa5b57b6900b9bb4c22b = L.marker(
+                [25.1773515, 121.4486751],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_2ffae6bc39d8959637289b78176fbb7a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_eb3721d8d057fa5b57b6900b9bb4c22b.setIcon(icon_2ffae6bc39d8959637289b78176fbb7a);
+        
+    
+            var marker_6c7e40e0756db56ccfca0d5c5fa30d47 = L.marker(
+                [25.1738173, 121.4508116],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_56910a0d6cbd1d89a546c5264cf01d6e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_6c7e40e0756db56ccfca0d5c5fa30d47.setIcon(icon_56910a0d6cbd1d89a546c5264cf01d6e);
+        
+    
+            var marker_347f74c73d52c9ec822063dd0462ae72 = L.marker(
+                [25.1741261, 121.4521311],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_b99733c0b26347d4d6d0f87bead5e8a0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_347f74c73d52c9ec822063dd0462ae72.setIcon(icon_b99733c0b26347d4d6d0f87bead5e8a0);
+        
+    
+            var marker_0f10a3c2b4c228712cd048574c3bb217 = L.marker(
+                [25.1779383, 121.4507452],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_da4a01a7630570233f68b24667d64a28 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0f10a3c2b4c228712cd048574c3bb217.setIcon(icon_da4a01a7630570233f68b24667d64a28);
+        
+    
+        var popup_72ada5b592521c7b55de989d8f1bebf1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_caac480ece150bb2a463fe293e1fc762 = $(`<div id="html_caac480ece150bb2a463fe293e1fc762" style="width: 100.0%; height: 100.0%;">淡大菁英</div>`)[0];
+                popup_72ada5b592521c7b55de989d8f1bebf1.setContent(html_caac480ece150bb2a463fe293e1fc762);
+            
+        
+
+        marker_0f10a3c2b4c228712cd048574c3bb217.bindPopup(popup_72ada5b592521c7b55de989d8f1bebf1)
+        ;
+
+        
+    
+    
+            var marker_3ff276b34e888683bf75c820a78cefc1 = L.marker(
+                [25.1779725, 121.4489211],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_e125800880dfed369b178057a000ed8c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_3ff276b34e888683bf75c820a78cefc1.setIcon(icon_e125800880dfed369b178057a000ed8c);
+        
+    
+        var popup_34fbddc7bdddfbd08e5b3d5bfb2d1fa9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_039f4b0f80ceaa6d38dae54782eb97f4 = $(`<div id="html_039f4b0f80ceaa6d38dae54782eb97f4" style="width: 100.0%; height: 100.0%;">Hi city</div>`)[0];
+                popup_34fbddc7bdddfbd08e5b3d5bfb2d1fa9.setContent(html_039f4b0f80ceaa6d38dae54782eb97f4);
+            
+        
+
+        marker_3ff276b34e888683bf75c820a78cefc1.bindPopup(popup_34fbddc7bdddfbd08e5b3d5bfb2d1fa9)
+        ;
+
+        
+    
+    
+            var marker_222593bb7b3d91aed465fca1f818238a = L.marker(
+                [25.1756404, 121.4457111],
+                {}
+            ).addTo(map_04c436150ad1dbb112244ad853cb98bc);
+        
+    
+            var icon_96fdac6c642520492fd295775682991e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_222593bb7b3d91aed465fca1f818238a.setIcon(icon_96fdac6c642520492fd295775682991e);
+        
+</script>
+</html>

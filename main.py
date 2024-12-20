@@ -12,8 +12,8 @@ from time import sleep
 from bs4 import BeautifulSoup
 from tqdm import tqdm # process bar
 
-# DATA_FILE = "113學年度學生居住調查暨校外賃居安全自評表_部份資料測試用.xlsx"
-DATA_FILE = "113學年度學生居住調查暨校外賃居安全自評表.xlsx"
+DATA_FILE = "113學年度學生居住調查暨校外賃居安全自評表_部份資料測試用.xlsx"
+# DATA_FILE = "113學年度學生居住調查暨校外賃居安全自評表.xlsx"
 CLEANED_DATA_FILE = "cleaned_data.xlsx"
 GOOGLE_MAP = "https://www.google.com.tw/maps"
 
@@ -21,7 +21,8 @@ GOOGLE_MAP = "https://www.google.com.tw/maps"
 ID_COL = "學號 Student ID（共9碼不要少了）"
 FINISH_DT_COL = "完成時間"
 CURRENT_RESIDENSY_COL = "目前居住位置 Current Residency"
-ADDRESS_COL = "租屋地址（請詳填住址，所有數字用「半型阿拉伯數字」填入，例如：新北市淡水區水源街2段1號）address"
+# ADDRESS_COL = "租屋地址（請詳填住址，所有數字用「半型阿拉伯數字」填入，例如：新北市淡水區水源街2段1號）address"
+ADDRESS_COL = "租屋地址（請詳填住址，所有數字用「半型阿拉伯數字」填入，例如：新北市淡水區水源街二段1號）address"
 PROPERTY_LABEL_COL = "社區大樓名稱（沒有則填「無」）community name (If not fill in none)"
 PROPERTY_TYPE_COL = "房屋類型（公寓無電梯；平房只有一樓）Property Type\n"
 SELF_SAFETY_CKECK_COL = "經過自我安全檢視後，我覺得... After a self-safety check, I think..."
@@ -114,6 +115,11 @@ def get_lat_lng(driver, address, error_address_list):
 
     return extract_lat_lng(driver.current_url)
 
+def check_same_address(df, index, address, coord):
+    for idx in df.index[index:]:
+        if df.loc[idx, ADDRESS_COL] == address:
+            df.loc[idx, 'coordinate'] = coord
+
 def make_functional_map(file_name):
     with open(file_name, 'r', encoding='utf-8') as file:
         soup = BeautifulSoup(file, 'html.parser')
@@ -147,18 +153,19 @@ if __name__ == "__main__":
         title = df.iloc[0, :]
         data = df.iloc[1:, :]
         data.columns = title
+        data['coordinate'] = 0
+        data['coordinate'] = data['coordinate'].astype('object')
 
         latest_entries = remove_duplicate(data) 
         filtered_data = residency_filter(latest_entries)
         filtered_data = address_filter(filtered_data)
         cleaned_data = address_cleaner(filtered_data)
-
-        cleaned_data.to_excel(CLEANED_DATA_FILE, index=False)
-        print(f'Finished creating the {CLEANED_DATA_FILE} file')
     else:
         title = df.iloc[0, :]
         cleaned_data = df.iloc[1:, :]
         cleaned_data.columns = title
+        cleaned_data['coordinate'] = 0
+        cleaned_data['coordinate'] = cleaned_data['coordinate'].astype('object')
 
     chrome_option = chromeOptions()
     chrome_option.add_argument('--log-level=3')
@@ -172,49 +179,60 @@ if __name__ == "__main__":
 
     error_address_list = []
 
-    for index, row in tqdm(cleaned_data.iterrows(), total=len(cleaned_data), desc="Processing addresses"):
-        address = row[ADDRESS_COL]
-        property_label = row[PROPERTY_LABEL_COL]
-        property_type = row[PROPERTY_TYPE_COL]
-        self_safety_check = row[SELF_SAFETY_CKECK_COL]
-
-        coord = get_lat_lng(driver, address, error_address_list)
-
-        sleep(1)
-
-        if coord:
-            icon_color = {
-                "大樓 building": 'blue',
-                "公寓 apartment": 'orange',
-                "平房 bungalow": 'purple',
-                "我的租屋處是安全的，不需要教官到場訪視 My rental place is safe and there is no need for instructors to visit the place": 'green',
-                "我的租屋處有些許不安全，但我可以自己處理並主動回報，不需要教官到場訪視 My rental apartment is a little unsafe, but I can handle it myself and report it proactively. I don’t need an instructor to visit the place": 'orange',
-                "需要教官到我的租屋處再幫忙檢視 I need an instructor to come to my rental office and check it again": 'red'
-            }
-
-            if property_label in ["無", "none", "None", ""]:
-                folium.Marker(
-                    location=coord, 
-                    icon=folium.Icon(color=icon_color[property_type])
-                ).add_to(map_for_students)
-                folium.Marker(
-                    location=coord, 
-                    icon=folium.Icon(color=icon_color[self_safety_check])
-                ).add_to(map_for_teachers)
+    try:
+        for index, row in tqdm(cleaned_data.iterrows(), total=len(cleaned_data), desc="Processing addresses"):
+            address = row[ADDRESS_COL]
+            property_label = row[PROPERTY_LABEL_COL]
+            property_type = row[PROPERTY_TYPE_COL]
+            self_safety_check = row[SELF_SAFETY_CKECK_COL]
+            
+            if row['coordinate'] == 0:
+                coord = get_lat_lng(driver, address, error_address_list)
+                sleep(1)
             else:
-                folium.Marker(
-                    location=coord, 
-                    popup=property_label,
-                    icon=folium.Icon(color=icon_color[property_type])
-                ).add_to(map_for_students)
-                folium.Marker(
-                    location=coord, 
-                    popup=property_label,
-                    icon=folium.Icon(color=icon_color[self_safety_check])
-                ).add_to(map_for_teachers)
-        else:
-            # print(f'{address} coordinates not found!')
-            pass
+                coord = row['coordinate']
+
+            if coord:
+                check_same_address(cleaned_data, index, address, coord)
+
+                icon_color = {
+                    "大樓 building": 'blue',
+                    "公寓 apartment": 'orange',
+                    "平房 bungalow": 'purple',
+                    "我的租屋處是安全的，不需要教官到場訪視 My rental place is safe and there is no need for instructors to visit the place": 'green',
+                    "我的租屋處有些許不安全，但我可以自己處理並主動回報，不需要教官到場訪視 My rental apartment is a little unsafe, but I can handle it myself and report it proactively. I don’t need an instructor to visit the place": 'orange',
+                    "需要教官到我的租屋處再幫忙檢視 I need an instructor to come to my rental office and check it again": 'red'
+                }
+
+                if property_label in ["無", "none", "None", ""]:
+                    folium.Marker(
+                        location=coord, 
+                        icon=folium.Icon(color=icon_color[property_type])
+                    ).add_to(map_for_students)
+                    folium.Marker(
+                        location=coord, 
+                        icon=folium.Icon(color=icon_color[self_safety_check])
+                    ).add_to(map_for_teachers)
+                else:
+                    folium.Marker(
+                        location=coord, 
+                        popup=property_label,
+                        icon=folium.Icon(color=icon_color[property_type])
+                    ).add_to(map_for_students)
+                    folium.Marker(
+                        location=coord, 
+                        popup=property_label,
+                        icon=folium.Icon(color=icon_color[self_safety_check])
+                    ).add_to(map_for_teachers)
+            else:
+                # print(f'{address} coordinates not found!')
+                pass
+
+        cleaned_data.to_excel(CLEANED_DATA_FILE, index=False)
+        print(f'Finished updating the {CLEANED_DATA_FILE} file')
+    except KeyboardInterrupt as e:
+        cleaned_data.to_excel(CLEANED_DATA_FILE, index=False)
+        print(f'Finished updating the {CLEANED_DATA_FILE} file')
 
     map_for_students.save('map_for_students.html')
     print("地圖已保存為 'map_for_students.html'")
